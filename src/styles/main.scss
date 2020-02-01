@@ -1,0 +1,19 @@
+@import "~bootstrap/scss/bootstrap";
+
+$container-selects-height: 200px;
+
+html, body, #root {
+  height: 100%;
+}
+
+.container-selects {
+  height: $container-selects-height;
+}
+
+.container-graph {
+  position: absolute;
+  top: $container-selects-height;
+  bottom: 0;
+  width: 100%;
+  background: aqua;
+}

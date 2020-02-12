@@ -1,18 +1,30 @@
 @import "~bootstrap/scss/bootstrap";
 
-$container-selects-height: 200px;
-
+$container-selects-height: 300px;
+$container-preface-height: 100px;
 html, body, #root {
   height: 100%;
 }
-
-.container-selects {
-  height: $container-selects-height;
+.container-preface {
+  height: $container-preface-height;
+  background: darkgreen;
 }
-
+.container-selects {
+  position: absolute;
+  top: $container-preface-height;
+  bottom:$container-selects-height;
+  width: 100%;
+}
+.container-vypis {
+  position: absolute;
+  top: 300px;//$container-selects-height;
+  bottom: 500px;
+  width: 100%;
+  background: red;
+}
 .container-graph {
   position: absolute;
-  top: $container-selects-height;
+  top: 490px;//$container-selects-height;
   bottom: 0;
   width: 100%;
   background: aqua;

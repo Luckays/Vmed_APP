@@ -6,6 +6,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
+    "csv-express": "^1.2.2",
     "express": "^4.17.1",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",

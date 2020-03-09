@@ -1,24 +1,36 @@
 @import "~bootstrap/scss/bootstrap";
 
-$container-selects-height: 300px;
-$container-preface-height: 100px;
+$container-selects-height: 250px;
+$container-preface-height: 550px;
 html, body, #root {
   height: 100%;
 }
 .container-preface {
-  height: $container-preface-height;
+  max-height: $container-preface-height;
   background: darkgreen;
+}
+.container-page {
+  position: absolute;
+  max-height: $container-preface-height;
+  background: black;
+  width: 100%;
+
 }
 .container-selects {
   position: absolute;
-  top: $container-preface-height;
-  bottom:$container-selects-height;
+  max-height: $container-selects-height;
+  width: 100%;
+}
+.container-selects2 {
+  position: absolute;
+  top:180px;
+  max-height: 400px;
   width: 100%;
 }
 .container-graph {
   position: absolute;
-  top: $container-selects-height;
-  bottom: 0;
+top:300px;
+
   width: 100%;
-  background: aqua;
+
 }

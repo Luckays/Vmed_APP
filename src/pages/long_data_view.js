@@ -5,17 +5,18 @@ import image from '../components/logo.png'
 import Calendar from "../components/calendar"
 import {Line} from 'react-chartjs-2'
 import fileDownload from 'js-file-download'
-import Analytic from "../components/Analytic";
+import HeadTitle from "../components/Head_title";
 function Long_data_view() {
     const [ selectedTable, setSelectedTable ] = useState('--');
     const [ tables, setTables ] = useState([]);
-    const [ selectedColumn, setSelectedColumn] = useState('teplota_u_GPS_anteny');
+    const [ selectedColumn, setSelectedColumn] = useState('random');
     const [ columns, setColumns] = useState([]);
     const [ groupType, setGroupType ] = useState('--');
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [chartData, setChartData] = useState([]);
     const [chartLabels, setChartLabels] = useState([]);
+    var date = new Date();
     useEffect(() => {
         api.get('/tables')
             .then(res => {
@@ -26,10 +27,10 @@ function Long_data_view() {
 
     useEffect(() => {
         api.post('/show_data', {
-            table_name:"all_table",
-            column:"teplota_u_GPS_anteny",
-            from_date:"2010-05-01 00:00:00",
-            to_date:"2010-05-15 00:01:00",
+            table_name:"all_table2",
+            column:"random",
+            from_date: date.setDate(date.getDate() - 7),
+            to_date:Date.now(),
             group_type: "Průměr",
         })
             .then(response => {
@@ -44,11 +45,11 @@ function Long_data_view() {
     useEffect(() => {
 
         api.post('/show_data', {
-            table_name:"all_table",
-            column:"teplota_u_GPS_anteny_kontrolni",
-            from_date:"2010-05-01 00:00:00",
-            to_date:"2010-05-15 00:01:00",
-            group_type: "Průměr",
+            table_name:"all_table2",
+            column:"random",
+            from_date: date,
+            to_date:Date.now(),
+            group_type: "Maximum",
 
 
         })
@@ -56,6 +57,26 @@ function Long_data_view() {
             .then(response => {
                 const values2 = response.data.map(i => i.sel_value)
                 setChartData2(values2)
+
+                console.log("OK")
+            })
+    },[]);
+
+    useEffect(() => {
+
+        api.post('/show_data', {
+            table_name:"all_table2",
+            column:"random",
+            from_date: date,
+            to_date:Date.now(),
+            group_type: "Minimum",
+
+
+        })
+
+            .then(response => {
+                const values3 = response.data.map(i => i.sel_value)
+                setChartData3(values3)
 
                 console.log("OK")
             })
@@ -112,14 +133,14 @@ function Long_data_view() {
 
     const [ selectedTable2, setSelectedTable2 ] = useState('--');
     const [ tables2, setTables2 ] = useState([]);
-    const [ selectedColumn2, setSelectedColumn2] = useState('teplota_u_GPS_anteny_kontrolni');
+    const [ selectedColumn2, setSelectedColumn2] = useState('random');
     const [ columns2, setColumns2] = useState([]);
     const [ groupType2, setGroupType2 ] = useState('--');
     const [chartData2, setChartData2] = useState([]);
 
 
     useEffect(() => {
-        api.get('/tables2')
+        api.get('/tables')
             .then(res => {
                 setTables2(res.data)
             })
@@ -127,14 +148,14 @@ function Long_data_view() {
     }, []);
     useEffect(() => {
         if (selectedTable2 === '--') return;
-        api.post('/columns2', { table_name: selectedTable2 })
+        api.post('/columns', { table_name: selectedTable2 })
             .then(res => setColumns2(res.data.data))
     }, [selectedTable2]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
 
     useEffect(() => {
         console.log(selectedTable2,selectedColumn2,startDate,endDate,groupType2)
         if (startDate === null || endDate === null || groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') return;
-        api.post('/show_data2', {
+        api.post('/show_data', {
             table_name: selectedTable2,
             column: selectedColumn2,
             from_date:startDate.format('YYYY-MM-DD HH:mm:ss'),
@@ -155,7 +176,7 @@ function Long_data_view() {
 
     var  downloadTxtFile2 = () => {
         if (startDate === null || endDate === null || groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') return;
-        api.post('/download2', {
+        api.post('/download', {
             table_name: selectedTable2,
             column: selectedColumn2,
             from_date:startDate.format('YYYY-MM-DD HH:mm:ss'),
@@ -170,19 +191,112 @@ function Long_data_view() {
 
     }
 
+    const [ selectedTable3, setSelectedTable3 ] = useState('--');
+    const [ tables3, setTables3 ] = useState([]);
+    const [ selectedColumn3, setSelectedColumn3] = useState('random');
+    const [ columns3, setColumns3] = useState([]);
+    const [ groupType3, setGroupType3 ] = useState('--');
+    const [chartData3, setChartData3] = useState([]);
+
+
+    useEffect(() => {
+        api.get('/tables')
+            .then(res => {
+                setTables3(res.data)
+            })
+
+    }, []);
+    useEffect(() => {
+        if (selectedTable3 === '--') return;
+        api.post('/columns', { table_name: selectedTable3 })
+            .then(res => setColumns3(res.data.data))
+    }, [selectedTable3]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
+
+    useEffect(() => {
+        console.log(selectedTable3,selectedColumn3,startDate,endDate,groupType3)
+        if (startDate === null || endDate === null || groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') return;
+        api.post('/show_data', {
+            table_name: selectedTable3,
+            column: selectedColumn3,
+            from_date:startDate.format('YYYY-MM-DD HH:mm:ss'),
+            to_date:endDate.format('YYYY-MM-DD HH:mm:ss'),
+            group_type: groupType3
+        })
+            .then(response => {
+                const values3 = response.data.map(i => i.sel_value)
+                setChartData3(values3)
+            })
+
+    },[selectedTable3,selectedColumn3,startDate,endDate,groupType3])
+
+    const onTableNameChange3 = e => setSelectedTable3(e.target.value);
+    const onColumnNameChange3 = e => setSelectedColumn3(e.target.value);;
+    const onGroupTypeChange3 = e => setGroupType3(e.target.value);
+
+
+    var  downloadTxtFile3 = () => {
+        if (startDate === null || endDate === null || groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') return;
+        api.post('/download', {
+            table_name: selectedTable3,
+            column: selectedColumn3,
+            from_date:startDate.format('YYYY-MM-DD HH:mm:ss'),
+            to_date:endDate.format('YYYY-MM-DD HH:mm:ss'),
+            group_type: groupType3
+
+        }).then(response => {
+            const dvalues = response.data
+            fileDownload(dvalues, 'Data'+Date.now()+'.csv');
+            console.log(dvalues)
+        })
+
+    }
+
 
     return (
         <div className="app h-100">
-            <div className="container-preface">
-                <p className="text-white"><p className="text-center"> <h1>  Vizualizace meteorologických a environmentálních dat Geodetické observatoře Pecný - dlouhodobá data     <img src={image} alt="Logo" height="95" width="95" align="top"/></h1> </p></p>
+            <HeadTitle/>
+            <div className="container-page">
+                <div className="text-white"><div className="text-center"> <h1>  Týdenní data  </h1> </div></div>
             </div>
 
 
-            <div className="container-selects">
-                <div className="row">
+            <div className="container-header">
+                <div className="row p-2">
 
                     <div className="col-2">
                         <label>Výběr tabulky</label>
+
+</div>
+                    <div className="col-3">
+                        <label>Výběr zobrazované hodnoty</label>
+
+                    </div>
+                    <div className="col-3">
+                        <label>Výběr data</label>
+
+
+                    </div>
+
+                    <div className="col-2">
+                        <label>Analytické funkce</label>
+
+                    </div>
+
+
+                    <div className="col-2">
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div className="container-selects">
+                <div className="row p-2">
+
+                    <div className="col-1">
+                        <label>Výběr pro červený graf </label>
+                    </div>
+                    <div className="col-1 p-1">
                         <select onChange={onTableNameChange}>
                             <option>--</option>
                             { tables.map(table => <option key={table.name_table} value={table.name_table}>{ table.title }</option>) }
@@ -190,7 +304,7 @@ function Long_data_view() {
                     </div>
 
                     <div className="col-3">
-                        <label>Výběr zobrazované hodnoty</label>
+
                         <select onChange={onColumnNameChange}>
                             <option>--</option>
                             { columns.map(column => <option key={column} value={column}>{ column }</option>) }
@@ -198,7 +312,7 @@ function Long_data_view() {
 
                     </div>
                     <div className="col-3">
-                        <label>Výběr data</label>
+
                         <Calendar onChange={(startDate,endDate) => {
                             setStartDate(startDate);
                             setEndDate(endDate);
@@ -207,14 +321,13 @@ function Long_data_view() {
                     </div>
 
                     <div className="col-2">
-                        <label>Analytické funkce</label>
+
                         <select onChange={onGroupTypeChange} value={groupType}>
                             <option>--</option>
                             <option>Součet</option>
                             <option>Maximum</option>
                             <option>Minimum</option>
                             <option>Průměr</option>
-                            <option>Vše</option>
                         </select>
                     </div>
 
@@ -229,10 +342,12 @@ function Long_data_view() {
             </div>
 
             <div className="container-selects2">
-                <div className="row">
+                <div className="row p-2">
 
-                    <div className="col-2">
-                        <label>Výběr tabulky</label>
+                    <div className="col-1">
+                        <label>Výběr pro zelený graf</label>
+                    </div>
+                        <div className="col-1 p-1">
                         <select onChange={onTableNameChange2}>
                             <option>--</option>
                             { tables2.map(table => <option key={table.name_table} value={table.name_table}>{ table.title }</option>) }
@@ -240,7 +355,6 @@ function Long_data_view() {
                     </div>
 
                     <div className="col-3">
-                        <label>Výběr zobrazované hodnoty</label>
                         <select onChange={onColumnNameChange2}>
                             <option>--</option>
                             { columns2.map(column => <option key={column} value={column}>{ column }</option>) }
@@ -252,19 +366,60 @@ function Long_data_view() {
                     </div>
 
                     <div className="col-2">
-                        <label>Analytické funkce</label>
                         <select onChange={onGroupTypeChange2} value={groupType2}>
                             <option>--</option>
                             <option>Součet</option>
                             <option>Maximum</option>
                             <option>Minimum</option>
                             <option>Průměr</option>
-                            <option>Vše</option>
                         </select>
                     </div>
 
                     <div className="col-2">
                         <button onClick={downloadTxtFile2}>
+                            Uložit
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div className="container-selects3">
+                <div className="row p-2">
+
+                    <div className="col-1">
+                        <label>Výběr pro modrý graf</label>
+                    </div>
+                    <div className="col-1 p-1">
+                        <select onChange={onTableNameChange3}>
+                            <option>--</option>
+                            { tables3.map(table => <option key={table.name_table} value={table.name_table}>{ table.title }</option>) }
+                        </select>
+                    </div>
+
+                    <div className="col-3">
+                        <select onChange={onColumnNameChange3}>
+                            <option>--</option>
+                            { columns3.map(column => <option key={column} value={column}>{ column }</option>) }
+                        </select>
+
+                    </div>
+                    <div className="col-3">
+
+                    </div>
+
+                    <div className="col-2">
+                        <select onChange={onGroupTypeChange3} value={groupType3}>
+                            <option>--</option>
+                            <option>Součet</option>
+                            <option>Maximum</option>
+                            <option>Minimum</option>
+                            <option>Průměr</option>
+                        </select>
+                    </div>
+
+                    <div className="col-2">
+                        <button onClick={downloadTxtFile3}>
                             Uložit
                         </button>
                     </div>
@@ -288,6 +443,14 @@ function Long_data_view() {
                             },
                                 {   label: selectedColumn2,
                                     data: chartData2,
+                                    borderColor: 'green',
+                                    fill: false,
+                                    pointBackgroundColor: '#fff',
+
+
+                                },
+                                {   label: selectedColumn3,
+                                    data: chartData3,
                                     borderColor: 'blue',
                                     fill: false,
                                     pointBackgroundColor: '#fff',

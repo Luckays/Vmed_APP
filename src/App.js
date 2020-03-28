@@ -5,7 +5,7 @@ import Home from "./pages/Home"
 import Long_data_view from "./pages/long_data_view";
 import Navigation from "./components/Navigation";
 import Short_data_view from "./pages/short_data_view"
-import About from "./pages/About"
+import about from "./pages/About"
 class App extends Component {
     render() {
 
@@ -20,7 +20,7 @@ class App extends Component {
                         <Route path="/" component={Home} exact/>
                         <Route path="/long_data_view" component={Long_data_view} exact/>
                         <Route path="/short_data_view" component={Short_data_view} exact/>
-                        <Route path="/about_project" component={About} exact/>
+                        <Route path="/about_project" component={about} exact/>
                         <Route component={Error}/>
                     </Switch>
                 </div>

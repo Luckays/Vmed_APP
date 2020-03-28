@@ -8,29 +8,59 @@ html, body, #root {
 .container-preface {
   max-height: $container-preface-height;
   background: darkgreen;
+
+
 }
+h1 {
+  margin: 0 !important;
+
+}
+
 .container-page {
-  position: absolute;
   max-height: $container-preface-height;
   background: black;
   width: 100%;
 
+}.container-title{
+
+
+ }
+
+.container-header {
+  position: absolute;
+  top:180px;
+  max-height: $container-selects-height;
+  width: 100%;
 }
+
 .container-selects {
   position: absolute;
+  top:210px;
   max-height: $container-selects-height;
   width: 100%;
 }
 .container-selects2 {
   position: absolute;
-  top:180px;
+  top:250px;
+  max-height: 400px;
+  width: 100%;
+}
+.container-selects3 {
+  position: absolute;
+  top:290px;
   max-height: 400px;
   width: 100%;
 }
 .container-graph {
   position: absolute;
-top:300px;
+top:350px;
 
   width: 100%;
+
+}
+.container-homeGraph{
+  display: flex;
+
+
 
 }

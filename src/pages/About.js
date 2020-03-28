@@ -1,15 +1,16 @@
 import React from 'react';
-import image from "../components/logo.png";
+import HeadTitle from "../components/Head_title";
 
-const home = () => {
+const About = () => {
+
     return (
-        <div className="app h-100">
-            <div className="container-preface">
-                <p className="text-white"><p className="text-center"> <h1>  Vizualizace meteorologických a environmentálních dat Geodetické observatoře Pecný     <img src={image} alt="Logo" height="95" width="95" align="top"/></h1> </p></p>
-            </div>
+        <div className="h-100">
+            <HeadTitle/>
                 <div className="container-page">
-                <p className="text-white"><p className="text-center"> <h1>  O projektu    </h1> </p></p>
+                <div className="text-white"><div className="text-center"> <h1>  O projektu    </h1> </div></div>
             </div>
+
+
             <p>o projektu</p>
 
 
@@ -20,4 +21,4 @@ const home = () => {
     );
 }
 
-export default home;
+export default About

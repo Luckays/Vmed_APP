@@ -6,16 +6,20 @@ import Calendar from "../components/calendar"
 import {Line} from 'react-chartjs-2'
 import fileDownload from 'js-file-download'
 import ReactCalendar from "../components/calendar_2";
+import Realpost from "../components/Realpost";
+import HeadTitle from "../components/Head_title";
 function Short_data_view() {
+
+
     const [ selectedTable, setSelectedTable ] = useState('--');
     const [ tables, setTables ] = useState([]);
     const [ selectedColumn, setSelectedColumn] = useState('--');
     const [ columns, setColumns] = useState([]);
     const [ groupType, setGroupType ] = useState('--');
-    const [Date, setDate] = useState(null);
-    const [ selectedDate, setSelectedDate] = useState(null);
-
-    const [endDate, setEndDate] = useState(null);
+    const [Date_day, setDate_day] = useState(null);
+    const [ selectedDate_day, setSelectedDate_day] = useState(null);
+    const [text, setText] = useState("Off");
+    const [endDate_day, setEndDate_day] = useState(null);
     const [chartData, setChartData] = useState([]);
     const [chartLabels, setChartLabels] = useState([]);
     useEffect(() => {
@@ -29,11 +33,9 @@ function Short_data_view() {
     useEffect(() => {
 
         api.post('/show_data_day', {
-            table_name:"mol_table",
-            column:"teplota_GPS_anteny",
-            from_date:"2005-09-09 00:00:00",
-            to_date:"2005-09-10 00:01:00",
-            group_type: "Vše"
+            table_name:"all_table2",
+            column:"random",
+            date:Date.now()
         })
             .then(response => {
                 const values = response.data.map(i => i.sel_value)
@@ -53,15 +55,17 @@ function Short_data_view() {
     }, [selectedTable]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
 
     useEffect(() => {
-        console.log(selectedTable,selectedColumn,Date,endDate,groupType)
-        if (Date === null || endDate === null || groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') return;
-        api.post('/show_data', {
+
+        if(text === "On") return;
+        console.log(selectedTable,selectedColumn,Date_day)
+        if (Date_day === null || selectedTable === '--'||selectedColumn === '--') return;
+
+        api.post('/show_data_day', {
             table_name: selectedTable,
             column: selectedColumn,
-            from_date:Date.format('YYYY-MM-DD HH:mm:ss'),
-            to_date:endDate.format('YYYY-MM-DD HH:mm:ss'),
-            group_type: groupType
+            date:Date_day
         })
+
             .then(response => {
                 const values = response.data.map(i => i.sel_value)
                 setChartData(values)
@@ -69,37 +73,71 @@ function Short_data_view() {
                 setChartLabels(dates)
             })
 
-    },[selectedTable,selectedColumn,Date,endDate,groupType])
+    },[selectedTable,selectedColumn,Date_day,text])
+
+    useEffect(() => {
+
+        if(text === "Off") {return;}
+
+        console.log(selectedTable,selectedColumn,Date_day)
+            if (selectedTable === '--'||selectedColumn === '--'||Date_day===null) return;
+
+
+        console.log(selectedTable,selectedColumn,Date_day)
+        Realpost(selectedTable,selectedColumn,Date_day,setChartData,setChartLabels);
+        var minutes = 1, the_interval = minutes * 60 * 1000;
+        setInterval(function () {
+       Realpost(selectedTable,selectedColumn,Date_day,setChartData,setChartLabels);
+        }, the_interval)
+    },[selectedTable,selectedColumn,Date_day,text])
+
+
+
+
 
     const onTableNameChange = e => setSelectedTable(e.target.value);
     const onColumnNameChange = e => setSelectedColumn(e.target.value);
     const onGroupTypeChange = e => setGroupType(e.target.value);
-    //const onDateChange = e => setSelectedDate(e.target.value);
 
     var  downloadTxtFile = () => {
-        if (Date === null || endDate === null || groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') return;
-        api.post('/download', {
+        if (Date_day === null ||  selectedTable === '--'||selectedColumn === '--') return;
+        api.post('/download_day', {
             table_name: selectedTable,
             column: selectedColumn,
-            from_date:Date.format('YYYY-MM-DD HH:mm:ss'),
-            to_date:endDate.format('YYYY-MM-DD HH:mm:ss'),
-            group_type: groupType
+            date:Date_day
         }).then(response => {
             const dvalues = response.data
-            // const ddates = response.data.map(i => i.date_day)
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
             console.log(dvalues)
         })
 
+
     }
 
+    var showRealtime = (text) => {
+        if (text=== 'On'){
 
+
+
+        }
+    }
+   var changeText = (text) => {
+        if (text === 'Off'){
+            setDate_day(Date.now());
+        text = 'On'}
+        else {text = 'Off'}
+       setText(text)
+
+   }
 
     return (
         <div className="app h-100">
-            <div className="container-preface">
-                <p className="text-white"><p className="text-center"> <h1>  Vizualizace meteorologických a environmentálních dat Geodetické observatoře Pecný - denní data     <img src={image} alt="Logo" height="95" width="95" align="top"/></h1> </p></p>
+            <HeadTitle/>
+
+            <div className="container-page">
+                <div className="text-white"><div className="text-center"> <h1>  Denní data    </h1> </div></div>
             </div>
+
 
 
             <div className="container-selects">
@@ -126,8 +164,8 @@ function Short_data_view() {
                         <label>Výběr data</label>
                         <div>
                             <ReactCalendar
-                                onChange={(Date) => {
-                                    setDate(Date);
+                                onChange={(Date_day) => {
+                                    setDate_day(Date_day);
                                 }}
 
                             />
@@ -136,15 +174,11 @@ function Short_data_view() {
                     </div>
 
                     <div className="col-2">
-                        <label>Analytické funkce</label>
-                        <select onChange={onGroupTypeChange} value={groupType}>
-                            <option>--</option>
-                            <option>Součet</option>
-                            <option>Maximum</option>
-                            <option>Minimum</option>
-                            <option>Průměr</option>
-                            <option>Vše</option>
-                        </select>
+                        <label>Zobrazení v reálném čase</label>
+                        <button onClick={showRealtime}
+                                onClick = {()=> {changeText(text)}}>{text}
+                        </button>
+
                     </div>
 
                     <div className="col-2">

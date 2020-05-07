@@ -1,11 +1,12 @@
 import React, { useState, useEffect} from 'react';
 import '../styles/main.scss'
 import api from "../api";
-import image from '../components/logo.png'
 import Calendar from "../components/calendar"
 import {Line} from 'react-chartjs-2'
 import fileDownload from 'js-file-download'
 import HeadTitle from "../components/Head_title";
+require('dotenv').config();
+
 function Long_data_view() {
     const [ selectedTable, setSelectedTable ] = useState('--');
     const [ tables, setTables ] = useState([]);
@@ -16,9 +17,9 @@ function Long_data_view() {
     const [endDate, setEndDate] = useState(null);
     const [chartData, setChartData] = useState([]);
     const [chartLabels, setChartLabels] = useState([]);
-    var date = new Date();
+    let date = new Date();
     useEffect(() => {
-        api.get('/tables')
+        api.get(process.env.REACT_APP_DATA_TABLES)
             .then(res => {
                 setTables(res.data)
             })
@@ -26,9 +27,9 @@ function Long_data_view() {
     }, []);
 
     useEffect(() => {
-        api.post('/show_data', {
-            table_name:"all_table2",
-            column:"random",
+        api.post(process.env.REACT_APP_DATA_ANALYSIS, {
+            table_name:process.env.REACT_APP_FIRST_TABLE,
+            column:process.env.REACT_APP_FIRST_COLUMN,
             from_date: date.setDate(date.getDate() - 7),
             to_date:Date.now(),
             group_type: "Průměr",
@@ -44,9 +45,9 @@ function Long_data_view() {
 
     useEffect(() => {
 
-        api.post('/show_data', {
-            table_name:"all_table2",
-            column:"random",
+        api.post(process.env.REACT_APP_DATA_ANALYSIS, {
+            table_name:process.env.REACT_APP_FIRST_TABLE,
+            column:process.env.REACT_APP_FIRST_COLUMN,
             from_date: date,
             to_date:Date.now(),
             group_type: "Maximum",
@@ -64,9 +65,9 @@ function Long_data_view() {
 
     useEffect(() => {
 
-        api.post('/show_data', {
-            table_name:"all_table2",
-            column:"random",
+        api.post(process.env.REACT_APP_DATA_ANALYSIS, {
+            table_name:process.env.REACT_APP_FIRST_TABLE,
+            column:process.env.REACT_APP_FIRST_COLUMN,
             from_date: date,
             to_date:Date.now(),
             group_type: "Minimum",
@@ -86,14 +87,14 @@ function Long_data_view() {
 
     useEffect(() => {
         if (selectedTable === '--') return;
-        api.post('/columns', { table_name: selectedTable })
+        api.post(process.env.REACT_APP_DATA_COLUMNS, { table_name: selectedTable })
             .then(res => setColumns(res.data.data))
     }, [selectedTable]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
 
     useEffect(() => {
         console.log(selectedTable,selectedColumn,startDate,endDate,groupType)
         if (startDate === null || endDate === null || groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') return;
-        api.post('/show_data', {
+        api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable,
             column: selectedColumn,
             from_date:startDate.format('YYYY-MM-DD HH:mm:ss'),
@@ -116,7 +117,7 @@ function Long_data_view() {
 
     var  downloadTxtFile = () => {
         if (startDate === null || endDate === null || groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') return;
-        api.post('/download', {
+        api.post(process.env.REACT_APP_DATA_DOWNLOAD,{
             table_name: selectedTable,
             column: selectedColumn,
             from_date:startDate.format('YYYY-MM-DD HH:mm:ss'),
@@ -140,7 +141,7 @@ function Long_data_view() {
 
 
     useEffect(() => {
-        api.get('/tables')
+        api.get(process.env.REACT_APP_DATA_TABLES)
             .then(res => {
                 setTables2(res.data)
             })
@@ -148,14 +149,14 @@ function Long_data_view() {
     }, []);
     useEffect(() => {
         if (selectedTable2 === '--') return;
-        api.post('/columns', { table_name: selectedTable2 })
+        api.post(process.env.REACT_APP_DATA_COLUMNS, { table_name: selectedTable2 })
             .then(res => setColumns2(res.data.data))
     }, [selectedTable2]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
 
     useEffect(() => {
         console.log(selectedTable2,selectedColumn2,startDate,endDate,groupType2)
         if (startDate === null || endDate === null || groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') return;
-        api.post('/show_data', {
+        api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable2,
             column: selectedColumn2,
             from_date:startDate.format('YYYY-MM-DD HH:mm:ss'),
@@ -176,7 +177,7 @@ function Long_data_view() {
 
     var  downloadTxtFile2 = () => {
         if (startDate === null || endDate === null || groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') return;
-        api.post('/download', {
+        api.post(process.env.REACT_APP_DATA_DOWNLOAD, {
             table_name: selectedTable2,
             column: selectedColumn2,
             from_date:startDate.format('YYYY-MM-DD HH:mm:ss'),
@@ -200,7 +201,7 @@ function Long_data_view() {
 
 
     useEffect(() => {
-        api.get('/tables')
+        api.get(process.env.REACT_APP_DATA_TABLES)
             .then(res => {
                 setTables3(res.data)
             })
@@ -208,14 +209,14 @@ function Long_data_view() {
     }, []);
     useEffect(() => {
         if (selectedTable3 === '--') return;
-        api.post('/columns', { table_name: selectedTable3 })
+        api.post(process.env.REACT_APP_DATA_COLUMNS, { table_name: selectedTable3 })
             .then(res => setColumns3(res.data.data))
     }, [selectedTable3]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
 
     useEffect(() => {
         console.log(selectedTable3,selectedColumn3,startDate,endDate,groupType3)
         if (startDate === null || endDate === null || groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') return;
-        api.post('/show_data', {
+        api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable3,
             column: selectedColumn3,
             from_date:startDate.format('YYYY-MM-DD HH:mm:ss'),
@@ -236,7 +237,7 @@ function Long_data_view() {
 
     var  downloadTxtFile3 = () => {
         if (startDate === null || endDate === null || groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') return;
-        api.post('/download', {
+        api.post(process.env.REACT_APP_DATA_DOWNLOAD, {
             table_name: selectedTable3,
             column: selectedColumn3,
             from_date:startDate.format('YYYY-MM-DD HH:mm:ss'),

@@ -8,6 +8,7 @@ import fileDownload from 'js-file-download'
 import ReactCalendar from "../components/calendar_2";
 import Realpost from "../components/Realpost";
 import HeadTitle from "../components/Head_title";
+require('dotenv').config();
 function Short_data_view() {
 
 
@@ -23,7 +24,7 @@ function Short_data_view() {
     const [chartData, setChartData] = useState([]);
     const [chartLabels, setChartLabels] = useState([]);
     useEffect(() => {
-        api.get('/tables')
+        api.get(process.env.REACT_APP_DATA_TABLES)
             .then(res => {
                 setTables(res.data)
             })
@@ -32,9 +33,9 @@ function Short_data_view() {
 
     useEffect(() => {
 
-        api.post('/show_data_day', {
-            table_name:"all_table2",
-            column:"random",
+        api.post(process.env.REACT_APP_DATA_DAY, {
+            table_name:process.env.REACT_APP_FIRST_TABLE,
+            column:process.env.REACT_APP_FIRST_COLUMN,
             date:Date.now()
         })
             .then(response => {
@@ -50,46 +51,46 @@ function Short_data_view() {
 
     useEffect(() => {
         if (selectedTable === '--') return;
-        api.post('/columns', { table_name: selectedTable })
+        api.post(process.env.REACT_APP_DATA_COLUMNS, { table_name: selectedTable })
             .then(res => setColumns(res.data.data))
     }, [selectedTable]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
 
-    useEffect(() => {
-
-        if(text === "On") return;
-        console.log(selectedTable,selectedColumn,Date_day)
-        if (Date_day === null || selectedTable === '--'||selectedColumn === '--') return;
-
-        api.post('/show_data_day', {
-            table_name: selectedTable,
-            column: selectedColumn,
-            date:Date_day
-        })
-
-            .then(response => {
-                const values = response.data.map(i => i.sel_value)
-                setChartData(values)
-                const dates = response.data.map(i => i.day_time)
-                setChartLabels(dates)
+        useEffect(() => {
+console.log(text)
+            if (text === 'On') return;
+            console.log(selectedTable, selectedColumn, Date_day)
+            if (Date_day === null || selectedTable === '--' || selectedColumn === '--') return;
+                console.log('inside')
+            api.post(process.env.REACT_APP_DATA_DAY, {
+                table_name: selectedTable,
+                column: selectedColumn,
+                date: Date_day
             })
 
-    },[selectedTable,selectedColumn,Date_day,text])
+                .then(response => {
+                    const values = response.data.map(i => i.sel_value)
+                    setChartData(values)
+                    const dates = response.data.map(i => i.day_time)
+                    setChartLabels(dates)
+                })}
+        , [selectedTable, selectedColumn, Date_day, text])
+
 
     useEffect(() => {
 
-        if(text === "Off") {return;}
+        if(text === 'Off') {return;}
 
         console.log(selectedTable,selectedColumn,Date_day)
             if (selectedTable === '--'||selectedColumn === '--'||Date_day===null) return;
-
-
-        console.log(selectedTable,selectedColumn,Date_day)
-        Realpost(selectedTable,selectedColumn,Date_day,setChartData,setChartLabels);
+        console.log('inside on')
+        let today = Date.now()
+        console.log(selectedTable,selectedColumn,today)
+        Realpost(selectedTable,selectedColumn,today,setChartData,setChartLabels);
         var minutes = 1, the_interval = minutes * 60 * 1000;
         setInterval(function () {
-       Realpost(selectedTable,selectedColumn,Date_day,setChartData,setChartLabels);
+       Realpost(selectedTable,selectedColumn,today,setChartData,setChartLabels);
         }, the_interval)
-    },[selectedTable,selectedColumn,Date_day,text])
+    },[selectedTable,selectedColumn,text])
 
 
 
@@ -101,7 +102,7 @@ function Short_data_view() {
 
     var  downloadTxtFile = () => {
         if (Date_day === null ||  selectedTable === '--'||selectedColumn === '--') return;
-        api.post('/download_day', {
+        api.post(process.env.REACT_APP_DATA_DOWNLOAD_DAY , {
             table_name: selectedTable,
             column: selectedColumn,
             date:Date_day
@@ -123,10 +124,10 @@ function Short_data_view() {
     }
    var changeText = (text) => {
         if (text === 'Off'){
-            setDate_day(Date.now());
         text = 'On'}
         else {text = 'Off'}
        setText(text)
+       setDate_day(Date_day)
 
    }
 

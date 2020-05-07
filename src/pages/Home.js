@@ -4,6 +4,7 @@ import {Line} from "react-chartjs-2";
 import HeadTitle from "../components/Head_title";
 import api from "../api";
 import { useState, useEffect} from 'react';
+require('dotenv').config();
 function Home() {
    const [ selectedColumn, setSelectedColumn] = useState('Venkovní teplota');
 
@@ -18,9 +19,9 @@ function Home() {
     var date = new Date();
     var date2 = new Date();
     useEffect(() => {
-        api.post('/show_data', {
-            table_name:"all_table2",
-            column:"random",
+        api.post(process.env.REACT_APP_DATA_ANALYSIS, {
+            table_name:process.env.REACT_APP_FIRST_TABLE,
+            column:process.env.REACT_APP_FIRST_COLUMN,
             from_date: date.setDate(date.getDate() - 7),
             to_date:Date.now(),
             group_type: "Minimum",
@@ -35,9 +36,9 @@ function Home() {
     },[]);
 
     useEffect(() => {
-        api.post('/show_data', {
-            table_name:"all_table2",
-            column:"random",
+        api.post(process.env.REACT_APP_DATA_ANALYSIS, {
+            table_name:process.env.REACT_APP_FIRST_TABLE,
+            column:process.env.REACT_APP_FIRST_COLUMN,
             from_date: date2.setDate(date2.getDate() - 7),
             to_date:Date.now(),
             group_type: "Maximum",
@@ -54,9 +55,9 @@ function Home() {
 
     useEffect(() => {
 
-        api.post('/show_data_day', {
-            table_name:"all_table2",
-            column:"random",
+        api.post(process.env.DATA_DAY, {
+            table_name:process.env.REACT_APP_FIRST_TABLE,
+            column:process.env.REACT_APP_FIRST_COLUMN,
             date:Date.now()
         })
             .then(response => {

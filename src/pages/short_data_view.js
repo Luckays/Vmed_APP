@@ -1,7 +1,6 @@
 import React, { Component,useState, useEffect} from 'react';
 import '../styles/main.scss'
 import api from "../api";
-import image from '../components/logo.png'
 import Calendar from "../components/calendar"
 import {Line} from 'react-chartjs-2'
 import fileDownload from 'js-file-download'

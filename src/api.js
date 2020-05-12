@@ -1,7 +1,7 @@
 import axios from 'axios'
 require('dotenv').config();
 const api = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: process.env.REACT_APP_API_HOST,
 });
 
 export default api

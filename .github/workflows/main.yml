@@ -1,0 +1,23 @@
+name: Deployment
+
+on:
+    push:
+        branches: [master]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Deploy to production via SSH
+              uses: appleboy/ssh-action@master
+              with:
+                  host: 'oko.pecny.cz'
+                  username: 'metapp'
+                  key: ${{ secrets.PRIVATE_KEY }}
+                  port: 22
+                  script: |
+                      cd /var/www/html/met/met_app
+                      git pull origin master
+                      npm install
+                      npm run build

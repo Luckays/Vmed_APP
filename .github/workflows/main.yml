@@ -18,6 +18,6 @@ jobs:
                   port: 22
                   script: |
                       cd /var/www/html/met/met_app
-                      git pull origin master
+                      git pull -f origin master
                       npm install
                       npm run build

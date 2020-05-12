@@ -1,5 +1,4 @@
 import React from 'react';
-import image from "../components/logo.png";
 import {Line} from "react-chartjs-2";
 import HeadTitle from "../components/Head_title";
 import api from "../api";

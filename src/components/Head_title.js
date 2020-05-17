@@ -1,11 +1,11 @@
-//import image from "./logo.png"; <img src={image} alt="Logo" height="95" width="95" align="top"/>
+import image from "./logo.png"; 
 import React from "react"
 const HeadTitle =()=> {
 return(
     <div className="container-preface">
         <div className="text-white">
-            <div className="text-center"><h1> Vizualizace meteorologických a environmentálních dat Geodetické observatoře
-                Pecný </h1></div>
+            <div className="text-center"><h1> <img src={image} alt="Logo" height="95" width="95" align="top"/> Vizualizace meteorologických a environmentálních dat Geodetické observatoře
+                 Pecný </h1></div>
         </div>
     </div>
 )

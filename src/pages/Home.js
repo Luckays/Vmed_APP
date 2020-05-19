@@ -54,7 +54,7 @@ function Home() {
 
     useEffect(() => {
 
-        api.post(process.env.DATA_DAY, {
+        api.post(process.env.REACT_APP_DATA_DAY, {
             table_name:process.env.REACT_APP_FIRST_TABLE,
             column:process.env.REACT_APP_FIRST_COLUMN,
             date:Date.now()

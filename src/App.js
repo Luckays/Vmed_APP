@@ -5,7 +5,7 @@ import Home from "./pages/Home"
 import Long_data_view from "./pages/long_data_view";
 import Navigation from "./components/Navigation";
 import Short_data_view from "./pages/short_data_view"
-import about from "./pages/About"
+import about from "./pages/About" 
 class App extends Component {
     render() {
 

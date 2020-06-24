@@ -257,7 +257,7 @@ function Long_data_view() {
         <div className="app h-100">
             <HeadTitle/>
             <div className="container-page">
-                <div className="text-white"><div className="text-center"> <h1>  Týdenní data  </h1> </div></div>
+                <div className="text-white"><div className="text-center"> <h1>  Dlouhodobá data</h1> </div></div>
             </div>
 
 

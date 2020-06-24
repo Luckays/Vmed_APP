@@ -10,7 +10,7 @@ require('dotenv').config();
 function Long_data_view() {
     const [ selectedTable, setSelectedTable ] = useState('--');
     const [ tables, setTables ] = useState([]);
-    const [ selectedColumn, setSelectedColumn] = useState('random');
+    const [ selectedColumn, setSelectedColumn] = useState('Venkovní teplota');
     const [ columns, setColumns] = useState([]);
     const [ groupType, setGroupType ] = useState('--');
     const [startDate, setStartDate] = useState(null);

@@ -10,7 +10,7 @@ require('dotenv').config();
 function Long_data_view() {
     const [ selectedTable, setSelectedTable ] = useState('--');
     const [ tables, setTables ] = useState([]);
-    const [ selectedColumn, setSelectedColumn] = useState('Venkovní teplota');
+    const [ selectedColumn, setSelectedColumn] = useState('Venkovní teplota - průměr');
     const [ columns, setColumns] = useState([]);
     const [ groupType, setGroupType ] = useState('--');
     const [startDate, setStartDate] = useState(null);
@@ -134,7 +134,7 @@ function Long_data_view() {
 
     const [ selectedTable2, setSelectedTable2 ] = useState('--');
     const [ tables2, setTables2 ] = useState([]);
-    const [ selectedColumn2, setSelectedColumn2] = useState('random');
+    const [ selectedColumn2, setSelectedColumn2] = useState('Venkovní teplota - maximum');
     const [ columns2, setColumns2] = useState([]);
     const [ groupType2, setGroupType2 ] = useState('--');
     const [chartData2, setChartData2] = useState([]);
@@ -194,7 +194,7 @@ function Long_data_view() {
 
     const [ selectedTable3, setSelectedTable3 ] = useState('--');
     const [ tables3, setTables3 ] = useState([]);
-    const [ selectedColumn3, setSelectedColumn3] = useState('random');
+    const [ selectedColumn3, setSelectedColumn3] = useState('Venkovní teplota - minimum');
     const [ columns3, setColumns3] = useState([]);
     const [ groupType3, setGroupType3 ] = useState('--');
     const [chartData3, setChartData3] = useState([]);

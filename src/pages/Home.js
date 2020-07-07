@@ -96,14 +96,14 @@ function Home() {
 
                                 datasets: [{
                                     label: selectedColumn2,
-                                    borderColor: 'red',
+                                    borderColor: 'blue',
                                     data:chartData2,
                                     fill: false,
                                     pointBackgroundColor: '#fff',
 
                                 },{   label: selectedColumn2_1,
                                     data: chartData2_1,
-                                    borderColor: 'blue',
+                                    borderColor: 'red',
                                     fill: false,
                                     pointBackgroundColor: '#fff',
 

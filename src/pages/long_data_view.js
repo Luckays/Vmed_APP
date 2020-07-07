@@ -463,9 +463,9 @@ function Long_data_view() {
                         }}
 
 
-                        width='2150' redraw
-                        height='600' redraw
-                        options={{ maintainAspectRatio: false,responsive:false}}
+                        width='2150'
+                        height='600'
+                        options={{ maintainAspectRatio: false,responsive:true}}
 
                     />
                 </div>

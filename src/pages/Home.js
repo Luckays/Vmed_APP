@@ -116,8 +116,7 @@ function Home() {
 
 
 
-                            width='1200' redraw
-                            height='500' redraw
+
                             options={{ maintainAspectRatio: true,responsive:true,
 
                                 title: {
@@ -147,9 +146,7 @@ function Home() {
         }}
 
 
-        width='1200' redraw
-        height='600' redraw
-        options={{ maintainAspectRatio: false,responsive:false,
+        options={{ maintainAspectRatio: true,responsive:true,
             title: {
                 display: true,
                 text:'Zobrazení dnešní venkovní teploty',

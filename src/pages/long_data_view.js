@@ -462,8 +462,8 @@ function Long_data_view() {
 
                         }}
 
-
-                        height= '1500'
+                        min-height= '600'
+                        max-height= '1500'
                         options={{ maintainAspectRatio:false,responsive:true}}
 
                     />

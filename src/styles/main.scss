@@ -57,12 +57,13 @@ h1 {
 top:350px;
 
   width: 100%;
+  min-width: 300px;
+  max-width: 3000px;
 
 }
 .container-homeGraph{
   margin-left: 50px;
-  min-height: 300px;
-  max-height: 600px;
+
   position: relative;
 
 }

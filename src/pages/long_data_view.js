@@ -465,7 +465,7 @@ function Long_data_view() {
 
                         width='2150'
                         height='600'
-                        options={{ maintainAspectRatio:true,responsive:true}}
+                        options={{ maintainAspectRatio:false,responsive:true}}
 
                     />
                 </div>

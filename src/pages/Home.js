@@ -118,7 +118,7 @@ function Home() {
                         width='1200'
                         height='600'
 
-                        options={{ maintainAspectRatio: true,responsive:true,
+                        options={{ maintainAspectRatio: false,responsive:true,
 
                                 title: {
                                     display: true,
@@ -149,7 +149,7 @@ function Home() {
 
         width='1200'
         height='600'
-        options={{ maintainAspectRatio: true,responsive:true,
+        options={{ maintainAspectRatio: false,responsive:true,
             title: {
                 display: true,
                 text:'Zobrazení dnešní venkovní teploty',

@@ -118,7 +118,7 @@ function Home() {
 
                             width='1200' redraw
                             height='500' redraw
-                            options={{ maintainAspectRatio: false,responsive:false,
+                            options={{ maintainAspectRatio: true,responsive:true,
 
                                 title: {
                                     display: true,

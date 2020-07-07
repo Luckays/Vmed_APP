@@ -463,7 +463,7 @@ function Long_data_view() {
                         }}
 
 
-                        height= 'auto'
+                        height= '1500'
                         options={{ maintainAspectRatio:false,responsive:true}}
 
                     />

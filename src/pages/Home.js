@@ -115,9 +115,10 @@ function Home() {
 
 
 
+                        width='1200'
+                        height='600'
 
-
-                            options={{ maintainAspectRatio: true,responsive:true,
+                        options={{ maintainAspectRatio: true,responsive:true,
 
                                 title: {
                                     display: true,
@@ -146,6 +147,8 @@ function Home() {
         }}
 
 
+        width='1200'
+        height='600'
         options={{ maintainAspectRatio: true,responsive:true,
             title: {
                 display: true,

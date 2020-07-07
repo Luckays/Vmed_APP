@@ -432,7 +432,7 @@ function Long_data_view() {
             <div className="container-graph">
                 <div className="col-md-4"
                 >
-                    <Line
+                    <Line style="width: 100% !important;height: auto !important;"
                         data={{
                             labels: chartLabels,
                             datasets: [{
@@ -463,7 +463,7 @@ function Long_data_view() {
                         }}
 
 
-                        width= '100%'
+                        width= '100%' redraw
                         height='600' redraw
                         options={{ maintainAspectRatio:false,responsive:true}}
 

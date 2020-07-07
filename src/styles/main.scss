@@ -61,9 +61,8 @@ top:350px;
 }
 .container-homeGraph{
   margin-left: 50px;
-  width: 100% !important;
-
-
-
+  min-height: 300px;
+  max-height: 600px;
+  position: relative;
 
 }

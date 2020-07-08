@@ -308,7 +308,7 @@ function Long_data_view() {
                         </select>
                     </div>
 
-                    <div className="col-2 p-1">
+                    <div className="col-2">
 
                         <select onChange={onColumnNameChange}>
                             <option>--</option>

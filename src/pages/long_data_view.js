@@ -472,7 +472,9 @@ function Long_data_view() {
                             scales: {
                                 xAxes: {
                                     type: 'time',
-                                    title:'ahoj'
+                                    time: {
+                                        unit: 'year'
+                                    }
                                 }
                             }
                         }}

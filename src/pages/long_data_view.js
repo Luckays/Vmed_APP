@@ -290,21 +290,27 @@ function Long_data_view() {
 
                 </div>
             </div>
-
+            <div className="container-calendar">
+                <Calendar onChange={(startDate,endDate) => {
+                    setStartDate(startDate);
+                    setEndDate(endDate);
+                }}
+                />
+            </div>
             <div className="container-selects">
                 <div className="row p-2">
 
-                    <div className="col-2">
+                    <div className="col-1">
                         <label>Výběr pro červený graf </label>
                     </div>
-                    <div className="col-2 p-1">
+                    <div className="col-4 p-1">
                         <select onChange={onTableNameChange}>
                             <option>--</option>
                             { tables.map(table => <option key={table.name_table} value={table.name_table}>{ table.title }</option>) }
                         </select>
                     </div>
 
-                    <div className="col-1">
+                    <div className="col-2">
 
                         <select onChange={onColumnNameChange}>
                             <option>--</option>
@@ -314,11 +320,6 @@ function Long_data_view() {
                     </div>
                     <div className="col-3">
 
-                        <Calendar onChange={(startDate,endDate) => {
-                            setStartDate(startDate);
-                            setEndDate(endDate);
-                        }}
-                        />
                     </div>
 
                     <div className="col-2">

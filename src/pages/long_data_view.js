@@ -467,7 +467,7 @@ function Long_data_view() {
 
                         }}
 
-
+                         redraw
                         options={{ maintainAspectRatio:false}}
 
                     />

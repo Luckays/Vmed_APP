@@ -268,14 +268,14 @@ function Long_data_view() {
                 <div className="col-1">
                     <h2>Výběr data</h2>
                 </div>
-                <div className="col-2">
+                <div className="col-6">
                 <Calendar onChange={(startDate,endDate) => {
                     setStartDate(startDate);
                     setEndDate(endDate);
                 }}
                 />
                 </div>
-                <div className="col-9">
+                <div className="col-5">
                 </div>
             </div>
             </div>

@@ -466,18 +466,9 @@ function Long_data_view() {
 
 
                         }}
-
-                         redraw
-                        options={{ maintainAspectRatio:false,
-                            scales: {
-                                xAxes: {
-                                    type: 'time',
-                                    time: {
-                                        unit: 'year'
-                                    }
-                                }
-                            }
-                        }}
+                     redraw
+                      redraw
+                        options={{ maintainAspectRatio:false}}
 
                     />
                 </div>

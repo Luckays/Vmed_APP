@@ -294,7 +294,7 @@ function Long_data_view() {
             <div className="container-selects">
                 <div className="row p-2">
 
-                    <div className="col-1">
+                    <div className="col-2">
                         <label>Výběr pro červený graf </label>
                     </div>
                     <div className="col-2 p-1">
@@ -304,7 +304,7 @@ function Long_data_view() {
                         </select>
                     </div>
 
-                    <div className="col-2">
+                    <div className="col-1">
 
                         <select onChange={onColumnNameChange}>
                             <option>--</option>

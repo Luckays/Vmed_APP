@@ -246,6 +246,7 @@ function Long_data_view() {
 
         }).then(response => {
             const dvalues = response.data
+            console.log('first'+ response.data)
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
             console.log(dvalues)
         })

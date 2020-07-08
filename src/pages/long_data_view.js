@@ -261,37 +261,10 @@ function Long_data_view() {
             </div>
 
 
-            <div className="container-header">
-                <div className="row p-2">
 
-                    <div className="col-2">
-                        <label>Výběr tabulky</label>
-
-</div>
-                    <div className="col-3">
-                        <label>Výběr zobrazované hodnoty</label>
-
-                    </div>
-                    <div className="col-3">
-
-
-
-                    </div>
-
-                    <div className="col-2">
-                        <label>Analytické funkce</label>k
-
-                    </div>
-
-
-                    <div className="col-2">
-
-                    </div>
-
-                </div>
-            </div>
 
             <div className="container-calendar">
+                <div className="row p-2">
                 <div className="col-2">
                     <h2>Výběr data</h2>
                 </div>
@@ -303,8 +276,37 @@ function Long_data_view() {
                 />
                 </div>
                 <div className="col-8">
-
+                </div>
             </div>
+            </div>
+            <div className="container-header">
+                <div className="row p-2">
+
+                    <div className="col-2">
+                        <h2>Výběr tabulky</h2>
+
+                    </div>
+                    <div className="col-3">
+                        <h2>Výběr zobrazované hodnoty</h2>
+
+                    </div>
+                    <div className="col-3">
+
+
+
+                    </div>
+
+                    <div className="col-2">
+                        <h2>Analytické funkce</h2>k
+
+                    </div>
+
+
+                    <div className="col-2">
+
+                    </div>
+
+                </div>
             </div>
             <div className="container-selects">
                 <div className="row p-2">

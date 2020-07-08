@@ -297,7 +297,7 @@ function Long_data_view() {
                     </div>
 
                     <div className="col-2">
-                        <h2>Analytické funkce</h2>k
+                        <h2>Výběr analytické funkce</h2>
 
                     </div>
 

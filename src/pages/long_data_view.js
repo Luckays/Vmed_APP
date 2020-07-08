@@ -300,10 +300,8 @@ function Long_data_view() {
             <div className="container-selects">
                 <div className="row p-2">
 
-                    <div className="col-1">
-                        <label>Výběr pro červený graf </label>
-                    </div>
-                    <div className="col-2 p-1">
+
+                    <div className="col-3 p-1">
                         <select onChange={onTableNameChange}>
                             <option>--</option>
                             { tables.map(table => <option key={table.name_table} value={table.name_table}>{ table.title }</option>) }
@@ -346,17 +344,15 @@ function Long_data_view() {
             <div className="container-selects2">
                 <div className="row p-2">
 
-                    <div className="col-1">
-                        <label>Výběr pro zelený graf</label>
-                    </div>
-                        <div className="col-1 p-1">
+
+                        <div className="col-3 p-1">
                         <select onChange={onTableNameChange2}>
                             <option>--</option>
                             { tables2.map(table => <option key={table.name_table} value={table.name_table}>{ table.title }</option>) }
                         </select>
                     </div>
 
-                    <div className="col-3">
+                    <div className="col-2">
                         <select onChange={onColumnNameChange2}>
                             <option>--</option>
                             { columns2.map(column => <option key={column} value={column}>{ column }</option>) }
@@ -389,10 +385,7 @@ function Long_data_view() {
             <div className="container-selects3">
                 <div className="row p-2">
 
-                    <div className="col-1">
-                        <label>Výběr pro modrý graf</label>
-                    </div>
-                    <div className="col-1 p-1">
+                    <div className="col-3 p-1">
                         <select onChange={onTableNameChange3}>
                             <option>--</option>
                             { tables3.map(table => <option key={table.name_table} value={table.name_table}>{ table.title }</option>) }
@@ -406,7 +399,7 @@ function Long_data_view() {
                         </select>
 
                     </div>
-                    <div className="col-3">
+                    <div className="col-2">
 
                     </div>
 

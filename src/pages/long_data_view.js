@@ -261,43 +261,49 @@ function Long_data_view() {
             </div>
 
 
-            <div className="container-header">
-                <div className="row p-2">
-
-                    <div className="col-2">
-                        <label>Výběr tabulky</label>
-
-</div>
-                    <div className="col-3">
-                        <label>Výběr zobrazované hodnoty</label>
-
-                    </div>
-                    <div className="col-3">
-                        <label>Výběr data</label>
-
-
-                    </div>
-
-                    <div className="col-2">
-                        <label>Analytické funkce</label>k
-
-                    </div>
-
-
-                    <div className="col-2">
-
-                    </div>
-
-                </div>
-            </div>
             <div className="container-calendar">
-
+                <div className="col-2">
+                    <label>Výběr data</label>
+                </div>
+                <div className="col-2">
                 <Calendar onChange={(startDate,endDate) => {
                     setStartDate(startDate);
                     setEndDate(endDate);
                 }}
-
                 />
+                </div>
+                <div className="col-8">
+
+
+                    <div className="container-header">
+                        <div className="row p-2">
+
+                            <div className="col-2">
+                                <label>Výběr tabulky</label>
+
+                            </div>
+                            <div className="col-3">
+                                <label>Výběr zobrazované hodnoty</label>
+
+                            </div>
+                            <div className="col-3">
+
+
+
+                            </div>
+
+                            <div className="col-2">
+                                <label>Analytické funkce</label>k
+
+                            </div>
+
+
+                            <div className="col-2">
+
+                            </div>
+
+                        </div>
+                    </div>
 
             </div>
             <div className="container-selects">

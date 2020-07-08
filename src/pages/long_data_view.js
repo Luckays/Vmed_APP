@@ -290,13 +290,13 @@ function Long_data_view() {
                         <h2>Výběr zobrazované hodnoty</h2>
 
                     </div>
-                    <div className="col-2">
+                    <div className="col-3">
 
 
 
                     </div>
 
-                    <div className="col-3">
+                    <div className="col-2">
                         <h2>Výběr analytické funkce</h2>
 
                     </div>

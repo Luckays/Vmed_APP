@@ -13,7 +13,7 @@ html, body, #root {
 
 }
 img{
-  size: 10vw;
+  size: 5vw;
 }
 h1 {
   margin: 0 !important;
@@ -50,21 +50,21 @@ border-bottom:  1px solid black;
   max-height: $container-selects-height;
   width: 100%;
   background-color: red;
-  margin-left: 5px;
+
 }
 .container-selects2 {
   position: relative;
   max-height: 400px;
   width: 100%;
   background-color: green;
-  margin-left: 5px;
+
 }
 .container-selects3 {
   position: relative;
   max-height: 400px;
   width: 100%;
   background-color: blue;
-  margin-left: 5px;
+
 }
 .container-graph {
   position: relative;

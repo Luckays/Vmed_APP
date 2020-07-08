@@ -469,9 +469,12 @@ function Long_data_view() {
 
                          redraw
                         options={{ maintainAspectRatio:false,
-                            xAxes:{
-                                type: 'time'}
-
+                            scales: {
+                                xAxes: {
+                                    type: 'time',
+                                    title:'ahoj'
+                                }
+                            }
                         }}
 
                     />

@@ -265,7 +265,7 @@ function Long_data_view() {
 
             <div className="container-calendar">
                 <div className="row p-2">
-                <div className="col-1">
+                <div className="col-2">
                     <h2>Výběr data</h2>
                 </div>
                 <div className="col-6">
@@ -275,7 +275,7 @@ function Long_data_view() {
                 }}
                 />
                 </div>
-                <div className="col-5">
+                <div className="col-4">
                 </div>
             </div>
             </div>

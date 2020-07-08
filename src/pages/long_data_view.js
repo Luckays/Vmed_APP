@@ -297,14 +297,14 @@ function Long_data_view() {
                     <div className="col-1">
                         <label>Výběr pro červený graf </label>
                     </div>
-                    <div className="col-1 p-1">
+                    <div className="col-2 p-1">
                         <select onChange={onTableNameChange}>
                             <option>--</option>
                             { tables.map(table => <option key={table.name_table} value={table.name_table}>{ table.title }</option>) }
                         </select>
                     </div>
 
-                    <div className="col-3">
+                    <div className="col-2">
 
                         <select onChange={onColumnNameChange}>
                             <option>--</option>

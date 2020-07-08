@@ -430,8 +430,8 @@ function Long_data_view() {
 
 
             <div className="container-graph">
-                <div className="col-md-4"
-                >
+
+
                     <Line
                         data={{
                             labels: chartLabels,
@@ -467,7 +467,7 @@ function Long_data_view() {
 
                     />
                 </div>
-            </div>
+
 
 
 

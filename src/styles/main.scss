@@ -28,8 +28,7 @@ h1 {
  }
 
 .container-header {
-  position: absolute;
-  top:180px;
+  position: relative;
   max-height: $container-selects-height;
   width: 100%;
 }

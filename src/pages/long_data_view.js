@@ -268,13 +268,7 @@ function Long_data_view() {
                 <div className="col-2">
                     <h2>Výběr data</h2>
                 </div>
-                <div className="col-6">
-                <Calendar onChange={(startDate,endDate) => {
-                    setStartDate(startDate);
-                    setEndDate(endDate);
-                }}
-                />
-                </div>
+
                 <div className="col-4">
                 </div>
             </div>
@@ -311,6 +305,13 @@ function Long_data_view() {
             <div className="container-selects">
                 <div className="row p-2">
 
+                    <div className="col-6">
+                        <Calendar onChange={(startDate,endDate) => {
+                            setStartDate(startDate);
+                            setEndDate(endDate);
+                        }}
+                        />
+                    </div>
 
                     <div className="col-3 p-1">
                         <select onChange={onTableNameChange}>
@@ -466,7 +467,6 @@ function Long_data_view() {
 
 
                         }}
-                     redraw
                       redraw
                         options={{ maintainAspectRatio:false}}
 

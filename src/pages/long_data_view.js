@@ -279,7 +279,7 @@ function Long_data_view() {
                     </div>
 
                     <div className="col-2">
-                        <label>Analytické funkce</label>
+                        <label>Analytické funkce</label>k
 
                     </div>
 
@@ -291,11 +291,18 @@ function Long_data_view() {
                 </div>
             </div>
             <div className="container-calendar">
+                <div className="row p-5">
+                </div>
+                    <div className="row p-2">
                 <Calendar onChange={(startDate,endDate) => {
                     setStartDate(startDate);
                     setEndDate(endDate);
                 }}
+
                 />
+                    </div>
+                        <div className="row p-5">
+                        </div>
             </div>
             <div className="container-selects">
                 <div className="row p-2">

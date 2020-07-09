@@ -94,10 +94,8 @@ function Long_data_view() {
     useEffect(() => {
         console.log(selectedTable,selectedColumn,startDate,endDate,groupType)
         if (startDate === null || endDate === null || groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') return;
-        if (groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') { setChartData2(null)
-            setColumns2('--')} ;
-        if (groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') { setChartData3(null)
-            setColumns3('--')} ;
+        if (groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') { setChartData2(null)} ;
+        if (groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') { setChartData3(null)} ;
         api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable,
             column: selectedColumn,
@@ -160,10 +158,8 @@ function Long_data_view() {
     useEffect(() => {
         console.log(selectedTable2,selectedColumn2,startDate,endDate,groupType2)
         if (startDate === null || endDate === null || groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') return;
-        if (groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') { setChartData(null)
-            setColumns('--')} ;
-        if (groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') { setChartData3(null)
-            setColumns3('--')} ;
+        if (groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') { setChartData(null)} ;
+        if (groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') { setChartData3(null)} ;
         api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable2,
             column: selectedColumn2,
@@ -227,9 +223,9 @@ function Long_data_view() {
         console.log(selectedTable3,selectedColumn3,startDate,endDate,groupType3)
         if (startDate === null || endDate === null || groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') return
         if (groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') { setChartData(null)
-            setColumns('--')} ;
-        if (groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') { setChartData2(null)
-            setColumns2('--')} ;
+            setSelectedColumn('--')
+        } ;
+        if (groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') { setChartData2(null)} ;
         api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable3,
             column: selectedColumn3,

@@ -18,11 +18,11 @@ img{
 }
 h1 {
   margin: 0 !important;
-  font-size: 2vw;
+  font-size: 2vw !important;
 }
 
 h2 {
- font-size: 1vw;
+ font-size: 1vw !important;
 
 }
 
@@ -53,6 +53,20 @@ border-bottom:  1px solid black;
   background-color: red;
 
 }
+
+.container-selects_short {
+  position: relative;
+  max-height: $container-selects-height;
+  width: 100%;
+  top: 1vh;
+
+}
+.container-selects_short2 {
+  position: relative;
+  max-height: $container-selects-height;
+  width: 100%;
+  top: 1vh;
+ }
 .container-selects2 {
   position: relative;
   max-height: 400px;
@@ -74,9 +88,54 @@ border-bottom:  1px solid black;
   width: 80vw;
 
 }
-.container-homeGraph{
-  margin-left: 50px;
-
+.container-graph_short {
   position: relative;
+  margin: auto;
+  margin-top: 1vh;
+  height: 70vh;
+  width: 80vw;
 
+}
+.container-homeGraph1{
+  float:left;
+  width:50%;
+  overflow:hidden;
+  height: 60vh;
+
+}
+.container-homeGraph2{
+
+  width:50%;
+  overflow:hidden;
+  height: 60vh;
+}
+
+.container-navigation{
+background-color: seagreen;
+}
+
+.Nav_link:link {
+  color: #fff;
+  font-size: 1vw;
+  line-height: 1vw;
+  text-decoration: none;
+}
+.Nav_link:visited {
+  color: #fff;
+}
+.Nav_link:hover {
+  background-color: seagreen;
+}
+.Nav_link:active {
+  background-color: seagreen;
+}
+
+.activeRoute {
+  background-color: darkseagreen;
+  cursor: not-allowed;
+}
+
+.container-line_kk {
+color: white;
+  font-size: 1vw;
 }

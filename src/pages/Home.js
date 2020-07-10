@@ -75,16 +75,14 @@ function Home() {
                 <div className="text-white"><div className="text-center"> <h1>  Domovská stránka   </h1> </div></div>
             </div>
 
-            <p>Vítejte na stránkách projektu</p>
+            <h2>Vítejte na stránkách projektu</h2>
 
 
 
 
 
-            <div className="container-homeGraph">
-                <div className="row"
-                >
-                    <div className="cal-6">
+            <div className="container-homeGraph1">
+
                         <Line
 
 
@@ -115,10 +113,9 @@ function Home() {
 
 
 
-                        width='1200'
-                        height='600'
 
-                        options={{ maintainAspectRatio: false,responsive:true,
+
+                        options={{ maintainAspectRatio: false,
 
                                 title: {
                                     display: true,
@@ -128,42 +125,40 @@ function Home() {
                             }}
 
                         />
-                    </div>
-
-<div className="cal-6">
-    <Line
-        data={{
-            labels: chartLabels,
-
-            datasets: [{
-                label: selectedColumn,
-                borderColor: 'blue',
-                data:chartData,
-                fill: false,
-                pointBackgroundColor: '#fff',
-            }]
 
 
-        }}
 
 
-        width='1200'
-        height='600'
-        options={{ maintainAspectRatio: false,responsive:true,
-            title: {
-                display: true,
-                text:'Zobrazení dnešní venkovní teploty',
-                fontSize:20,
-            }
-        }}
-
-    />
-</div>
-                </div>
             </div>
+            <div className="container-homeGraph2">
+            <Line
+                data={{
+                    labels: chartLabels,
+
+                    datasets: [{
+                        label: selectedColumn,
+                        borderColor: 'blue',
+                        data:chartData,
+                        fill: false,
+                        pointBackgroundColor: '#fff',
+                    }]
+
+
+                }}
 
 
 
+                options={{ maintainAspectRatio: false,
+                    title: {
+                        display: true,
+                        text:'Zobrazení dnešní venkovní teploty',
+                        fontSize:20,
+                    }
+                }}
+
+            />
+
+            </div>
 
         </div>
     );

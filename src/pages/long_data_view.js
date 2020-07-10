@@ -10,7 +10,7 @@ require('dotenv').config();
 function Long_data_view() {
     const [ selectedTable, setSelectedTable ] = useState('--');
     const [ tables, setTables ] = useState([]);
-    const [ selectedColumn, setSelectedColumn] = useState('Venkovní teplota - průměr');
+    const [ selectedColumn, setSelectedColumn] = useState('Venkovní teplota - maximum');
     const [ columns, setColumns] = useState([]);
     const [ groupType, setGroupType ] = useState('--');
     const [startDate, setStartDate] = useState(null);
@@ -32,7 +32,7 @@ function Long_data_view() {
             column:process.env.REACT_APP_FIRST_COLUMN,
             from_date: date.setDate(date.getDate() - 7),
             to_date:Date.now(),
-            group_type: "Průměr",
+            group_type: "Maximum",
         })
             .then(response => {
                 const values = response.data.map(i => i.sel_value)
@@ -50,7 +50,7 @@ function Long_data_view() {
             column:process.env.REACT_APP_FIRST_COLUMN,
             from_date: date,
             to_date:Date.now(),
-            group_type: "Maximum",
+            group_type: "Průměr",
 
 
         })
@@ -95,9 +95,9 @@ function Long_data_view() {
         console.log(selectedTable,selectedColumn,startDate,endDate,groupType)
         if (startDate === null || endDate === null || groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') return;
         if (groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') { setChartData2(null)
-            setSelectedColumn2('--'} ;
+            setSelectedColumn2('--')} ;
         if (groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') { setChartData3(null)
-            setSelectedColumn3('--'} ;
+            setSelectedColumn3('--')} ;
         api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable,
             column: selectedColumn,
@@ -138,7 +138,7 @@ function Long_data_view() {
 
     const [ selectedTable2, setSelectedTable2 ] = useState('--');
     const [ tables2, setTables2 ] = useState([]);
-    const [ selectedColumn2, setSelectedColumn2] = useState('Venkovní teplota - maximum');
+    const [ selectedColumn2, setSelectedColumn2] = useState('Venkovní teplota - průměr');
     const [ columns2, setColumns2] = useState([]);
     const [ groupType2, setGroupType2 ] = useState('--');
     const [chartData2, setChartData2] = useState([]);
@@ -161,9 +161,9 @@ function Long_data_view() {
         console.log(selectedTable2,selectedColumn2,startDate,endDate,groupType2);
         if (startDate === null || endDate === null || groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') return;
         if (groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') { setChartData(null)
-            setSelectedColumn('--'} ;
+            setSelectedColumn('--')} ;
         if (groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') { setChartData3(null)
-            setSelectedColumn3('--'} ;
+            setSelectedColumn3('--')} ;
         api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable2,
             column: selectedColumn2,
@@ -230,7 +230,7 @@ function Long_data_view() {
             setSelectedColumn('--')
         } ;
         if (groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') { setChartData2(null)
-            setSelectedColumn2('--'} ;
+            setSelectedColumn2('--')} ;
         api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable3,
             column: selectedColumn3,
@@ -286,14 +286,14 @@ function Long_data_view() {
                 <div className="col-2">
                     <h2>Výběr data</h2>
                 </div>
-                <div className="col-6">
+                <div className="col-8">
                 <Calendar onChange={(startDate,endDate) => {
                     setStartDate(startDate);
                     setEndDate(endDate);
                 }}
                 />
                 </div>
-                <div className="col-4">
+                <div className="col-2">
                 </div>
             </div>
             </div>
@@ -314,15 +314,13 @@ function Long_data_view() {
 
                     </div>
 
-                    <div className="col-2">
+                    <div className="col-4">
                         <h2>Výběr analytické funkce</h2>
 
                     </div>
 
 
-                    <div className="col-2">
 
-                    </div>
 
                 </div>
             </div>

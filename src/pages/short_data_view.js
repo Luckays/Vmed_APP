@@ -140,11 +140,33 @@ console.log(text)
 
 
 
-            <div className="container-selects">
+            <div className="container-selects_short">
                 <div className="row">
 
                     <div className="col-2">
-                        <label>Výběr tabulky</label>
+                        <h2>Výběr tabulky</h2>
+                    </div>
+
+                    <div className="col-3">
+                        <h2>Výběr hodnoty</h2>
+                    </div>
+
+                    <div className="col-3">
+                        <h2>Výběr dne</h2>
+                    </div>
+
+                    <div className="col-4">
+                        <h2>Zobrazení v reálném čase</h2>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div className="container-selects_short2">
+                <div className="row">
+
+                    <div className="col-2">
                         <select onChange={onTableNameChange}>
                             <option>--</option>
                             { tables.map(table => <option key={table.name_table} value={table.name_table}>{ table.title }</option>) }
@@ -152,7 +174,6 @@ console.log(text)
                     </div>
 
                     <div className="col-3">
-                        <label>Výběr zobrazované hodnoty</label>
                         <select onChange={onColumnNameChange}>
                             <option>--</option>
                             { columns.map(column => <option key={column} value={column}>{ column }</option>) }
@@ -161,7 +182,6 @@ console.log(text)
                     </div>
 
                     <div className="col-3">
-                        <label>Výběr data</label>
                         <div>
                             <ReactCalendar
                                 onChange={(Date_day) => {
@@ -174,7 +194,6 @@ console.log(text)
                     </div>
 
                     <div className="col-2">
-                        <label>Zobrazení v reálném čase</label>
                         <button onClick={showRealtime}
                                 onClick = {()=> {changeText(text)}}>{text}
                         </button>
@@ -190,7 +209,7 @@ console.log(text)
                 </div>
             </div>
 
-            <div className="container-graph">
+            <div className="container-graph_short ">
 
                     <Line
                         data={{

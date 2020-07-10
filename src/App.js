@@ -18,6 +18,7 @@ class App extends Component {
                     <Navigation/>
                     <Switch>
                         <Route path="/" component={Home} exact/>
+                        <Route path="/home" component={Home} exact/>
                         <Route path="/long_data_view" component={Long_data_view} exact/>
                         <Route path="/short_data_view" component={Short_data_view} exact/>
                         <Route path="/about_project" component={about} exact/>

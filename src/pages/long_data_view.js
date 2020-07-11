@@ -35,10 +35,10 @@ function Long_data_view() {
             group_type: "Maximum",
         })
             .then(response => {
-                const values = response.data.map(i => i.sel_value)
-                setChartData(values)
-                const dates = response.data.map(i => i.date_day)
-                setChartLabels(dates)
+                const values = response.data.map(i => i.sel_value);
+                setChartData(values);
+                const dates = response.data.map(i => i.date_day);
+                setChartLabels(dates);
                 console.log("OK")
             })
     },[]);
@@ -56,8 +56,8 @@ function Long_data_view() {
         })
 
             .then(response => {
-                const values2 = response.data.map(i => i.sel_value)
-                setChartData2(values2)
+                const values2 = response.data.map(i => i.sel_value);
+                setChartData2(values2);
 
                 console.log("OK")
             })
@@ -76,8 +76,8 @@ function Long_data_view() {
         })
 
             .then(response => {
-                const values3 = response.data.map(i => i.sel_value)
-                setChartData3(values3)
+                const values3 = response.data.map(i => i.sel_value);
+                setChartData3(values3);
 
                 console.log("OK")
             })
@@ -92,12 +92,14 @@ function Long_data_view() {
     }, [selectedTable]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
 
     useEffect(() => {
-        console.log(selectedTable,selectedColumn,startDate,endDate,groupType)
+        console.log(selectedTable,selectedColumn,startDate,endDate,groupType);
         if (startDate === null || endDate === null || groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') return;
-        if (groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') { setChartData2(null)
-            setSelectedColumn2('--')} ;
-        if (groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') { setChartData3(null)
-            setSelectedColumn3('--')} ;
+        if (groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') { setChartData2(null);
+            setSelectedColumn2('--')
+        }
+        if (groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') { setChartData3(null);
+            setSelectedColumn3('--')
+        }
         api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable,
             column: selectedColumn,
@@ -106,16 +108,16 @@ function Long_data_view() {
             group_type: groupType
         })
             .then(response => {
-                const values = response.data.map(i => i.sel_value)
-                setChartData(values)
-                const dates = response.data.map(i => i.date_day)
+                const values = response.data.map(i => i.sel_value);
+                setChartData(values);
+                const dates = response.data.map(i => i.date_day);
                 setChartLabels(dates)
             })
 
-    },[selectedTable,selectedColumn,startDate,endDate,groupType])
+    },[selectedTable,selectedColumn,startDate,endDate,groupType]);
 
     const onTableNameChange = e => setSelectedTable(e.target.value);
-    const onColumnNameChange = e => setSelectedColumn(e.target.value);;
+    const onColumnNameChange = e => setSelectedColumn(e.target.value);
     const onGroupTypeChange = e => setGroupType(e.target.value);
 
 
@@ -124,17 +126,17 @@ function Long_data_view() {
         api.post(process.env.REACT_APP_DATA_DOWNLOAD,{
             table_name: selectedTable,
             column: selectedColumn,
-            from_date:startDate.format('YYYY-MM-DD HH:mm:ss'),
-            to_date:endDate.format('YYYY-MM-DD HH:mm:ss'),
+            from_date:startDate.format('YYYY-MM-DD'),
+            to_date:endDate.format('YYYY-MM-DD'),
             group_type: groupType
         }).then(response => {
-            const dvalues = response.data
+            const dvalues = response.data;
             // const ddates = response.data.map(i => i.date_day)
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
             console.log(dvalues)
         })
 
-    }
+    };
 
     const [ selectedTable2, setSelectedTable2 ] = useState('--');
     const [ tables2, setTables2 ] = useState([]);
@@ -160,10 +162,12 @@ function Long_data_view() {
     useEffect(() => {
         console.log(selectedTable2,selectedColumn2,startDate,endDate,groupType2);
         if (startDate === null || endDate === null || groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') return;
-        if (groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') { setChartData(null)
-            setSelectedColumn('--')} ;
-        if (groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') { setChartData3(null)
-            setSelectedColumn3('--')} ;
+        if (groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') { setChartData(null);
+            setSelectedColumn('--')
+        }
+        if (groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') { setChartData3(null);
+            setSelectedColumn3('--')
+        }
         api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable2,
             column: selectedColumn2,
@@ -172,16 +176,16 @@ function Long_data_view() {
             group_type: groupType2
         })
             .then(response => {
-                const values2 = response.data.map(i => i.sel_value)
-                setChartData2(values2)
-                const dates = response.data.map(i => i.date_day)
+                const values2 = response.data.map(i => i.sel_value);
+                setChartData2(values2);
+                const dates = response.data.map(i => i.date_day);
                 setChartLabels(dates)
             })
 
-    },[selectedTable2,selectedColumn2,startDate,endDate,groupType2])
+    },[selectedTable2,selectedColumn2,startDate,endDate,groupType2]);
 
     const onTableNameChange2 = e => setSelectedTable2(e.target.value);
-    const onColumnNameChange2 = e => setSelectedColumn2(e.target.value);;
+    const onColumnNameChange2 = e => setSelectedColumn2(e.target.value);
     const onGroupTypeChange2 = e => setGroupType2(e.target.value);
 
 
@@ -195,12 +199,12 @@ function Long_data_view() {
             group_type: groupType2
 
         }).then(response => {
-            const dvalues = response.data
+            const dvalues = response.data;
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
             console.log(dvalues)
         })
 
-    }
+    };
 
     const [ selectedTable3, setSelectedTable3 ] = useState('--');
     const [ tables3, setTables3 ] = useState([]);
@@ -224,13 +228,14 @@ function Long_data_view() {
     }, [selectedTable3]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
 
     useEffect(() => {
-        console.log(selectedTable3,selectedColumn3,startDate,endDate,groupType3)
-        if (startDate === null || endDate === null || groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') return
-        if (groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') { setChartData(null)
+        console.log(selectedTable3,selectedColumn3,startDate,endDate,groupType3);
+        if (startDate === null || endDate === null || groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') return;
+        if (groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') { setChartData(null);
             setSelectedColumn('--')
-        } ;
-        if (groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') { setChartData2(null)
-            setSelectedColumn2('--')} ;
+        }
+        if (groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') { setChartData2(null);
+            setSelectedColumn2('--')
+        }
         api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable3,
             column: selectedColumn3,
@@ -239,16 +244,16 @@ function Long_data_view() {
             group_type: groupType3
         })
             .then(response => {
-                const values3 = response.data.map(i => i.sel_value)
-                setChartData3(values3)
-                const dates = response.data.map(i => i.date_day)
+                const values3 = response.data.map(i => i.sel_value);
+                setChartData3(values3);
+                const dates = response.data.map(i => i.date_day);
                 setChartLabels(dates)
             })
 
-    },[selectedTable3,selectedColumn3,startDate,endDate,groupType3])
+    },[selectedTable3,selectedColumn3,startDate,endDate,groupType3]);
 
     const onTableNameChange3 = e => setSelectedTable3(e.target.value);
-    const onColumnNameChange3 = e => setSelectedColumn3(e.target.value);;
+    const onColumnNameChange3 = e => setSelectedColumn3(e.target.value);
     const onGroupTypeChange3 = e => setGroupType3(e.target.value);
 
 
@@ -262,13 +267,13 @@ function Long_data_view() {
             group_type: groupType3
 
         }).then(response => {
-            const dvalues = response.data
-            console.log('first'+ response.data)
+            const dvalues = response.data;
+            console.log('first'+ response.data);
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
             console.log(dvalues)
         })
 
-    }
+    };
 
 
     return (

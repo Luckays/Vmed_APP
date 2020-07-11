@@ -37,7 +37,7 @@ function Long_data_view() {
             .then(response => {
                 const values = response.data.map(i => i.sel_value);
                 setChartData(values);
-                const dates = response.data.map(i => i.date_day);
+                const dates = response.data.map(i => i.date_day.format('YYYY-MM-DD '));
                 setChartLabels(dates);
                 console.log("OK")
             })
@@ -126,11 +126,12 @@ function Long_data_view() {
         api.post(process.env.REACT_APP_DATA_DOWNLOAD,{
             table_name: selectedTable,
             column: selectedColumn,
-            from_date:startDate.format('YYYY-MM-DD'),
-            to_date:endDate.format('YYYY-MM-DD'),
+            from_date:startDate.format('YYYY-MM-DD HH:mm:ss'),
+            to_date:endDate.format('YYYY-MM-DD HH:mm:ss'),
             group_type: groupType
         }).then(response => {
-            const dvalues = response.data.format('YYYY-MM-DD');
+            const dvalues = response.data;
+            // const ddates = response.data.map(i => i.date_day)
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
             console.log(dvalues)
         })

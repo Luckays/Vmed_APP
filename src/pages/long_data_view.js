@@ -37,7 +37,7 @@ function Long_data_view() {
             .then(response => {
                 const values = response.data.map(i => i.sel_value);
                 setChartData(values);
-                const dates = response.data.map(i => i.date_day.format('YYYY-MM-DD '));
+                const dates = response.data.map(i => i.date_day);
                 setChartLabels(dates);
                 console.log("OK")
             })

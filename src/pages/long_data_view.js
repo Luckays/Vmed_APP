@@ -131,9 +131,8 @@ function Long_data_view() {
             group_type: groupType
         }).then(response => {
             const dvalues = response.data;
-            // const ddates = response.data.map(i => i.date_day)
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
-            console.log(dvalues)
+            console.log(dvalues.format('YYYY-MM-DD'))
         })
 
     };

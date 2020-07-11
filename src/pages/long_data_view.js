@@ -130,9 +130,9 @@ function Long_data_view() {
             to_date:endDate.format('YYYY-MM-DD'),
             group_type: groupType
         }).then(response => {
-            const dvalues = response.data;
+            const dvalues = response.data.format('YYYY-MM-DD');
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
-            console.log(dvalues.format('YYYY-MM-DD'))
+            console.log(dvalues)
         })
 
     };

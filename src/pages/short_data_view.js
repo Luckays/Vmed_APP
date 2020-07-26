@@ -38,9 +38,9 @@ function Short_data_view() {
             date:Date.now()
         })
             .then(response => {
-                const values = response.data.map(i => i.sel_value)
-                setChartData(values)
-                const dates = response.data.map(i => i.day_time)
+                const values = response.data.map(i => i.sel_value);
+                setChartData(values);
+                const dates = response.data.map(i => i.day_time);
                 setChartLabels(dates)
             })
     },[]);
@@ -55,11 +55,11 @@ function Short_data_view() {
     }, [selectedTable]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
 
         useEffect(() => {
-console.log(text)
+console.log(text);
             if (text === 'On') return;
-            console.log(selectedTable, selectedColumn, Date_day)
+            console.log(selectedTable, selectedColumn, Date_day);
             if (Date_day === null || selectedTable === '--' || selectedColumn === '--') return;
-                console.log('inside')
+                console.log('inside');
             api.post(process.env.REACT_APP_DATA_DAY, {
                 table_name: selectedTable,
                 column: selectedColumn,
@@ -67,29 +67,29 @@ console.log(text)
             })
 
                 .then(response => {
-                    const values = response.data.map(i => i.sel_value)
-                    setChartData(values)
-                    const dates = response.data.map(i => i.day_time)
+                    const values = response.data.map(i => i.sel_value);
+                    setChartData(values);
+                    const dates = response.data.map(i => i.day_time);
                     setChartLabels(dates)
                 })}
-        , [selectedTable, selectedColumn, Date_day, text])
+        , [selectedTable, selectedColumn, Date_day, text]);
 
 
     useEffect(() => {
 
         if(text === 'Off') {return;}
 
-        console.log(selectedTable,selectedColumn,Date_day)
+        console.log(selectedTable,selectedColumn,Date_day);
             if (selectedTable === '--'||selectedColumn === '--'||Date_day===null) return;
-        console.log('inside on')
-        let today = Date.now()
-        console.log(selectedTable,selectedColumn,today)
+        console.log('inside on');
+        let today = Date.now();
+        console.log(selectedTable,selectedColumn,today);
         Realpost(selectedTable,selectedColumn,today,setChartData,setChartLabels);
         var minutes = 1, the_interval = minutes * 60 * 1000;
         setInterval(function () {
        Realpost(selectedTable,selectedColumn,today,setChartData,setChartLabels);
         }, the_interval)
-    },[selectedTable,selectedColumn,text])
+    },[selectedTable,selectedColumn,text]);
 
 
 
@@ -106,13 +106,13 @@ console.log(text)
             column: selectedColumn,
             date:Date_day
         }).then(response => {
-            const dvalues = response.data
+            const dvalues = response.data;
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
             console.log(dvalues)
         })
 
 
-    }
+    };
 
     var showRealtime = (text) => {
         if (text=== 'On'){
@@ -120,15 +120,15 @@ console.log(text)
 
 
         }
-    }
+    };
    var changeText = (text) => {
         if (text === 'Off'){
         text = 'On'}
         else {text = 'Off'}
-       setText(text)
+       setText(text);
        setDate_day(Date_day)
 
-   }
+   };
 
     return (
         <div className="app h-100">
@@ -156,7 +156,7 @@ console.log(text)
                     </div>
 
                     <div className="col-4">
-                        <h2>Zobrazení v reálném čase</h2>
+                        {/*   <h2>Zobrazení v reálném čase</h2> */}
                     </div>
 
 
@@ -193,7 +193,7 @@ console.log(text)
                         </div>
                     </div>
 
-                    <div className="col-2">
+                    {/*   <div className="col-2">
                         <button onClick={showRealtime}
                                 onClick = {()=> {changeText(text)}}>{text}
                         </button>
@@ -204,9 +204,10 @@ console.log(text)
                         <button onClick={downloadTxtFile}>
                             Uložit
                         </button>
-                    </div>
+                    </div>*/}
 
                 </div>
+
             </div>
 
             <div className="container-graph_short ">

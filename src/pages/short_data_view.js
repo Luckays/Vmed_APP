@@ -36,7 +36,7 @@ function Short_data_view() {
         api.post(process.env.REACT_APP_DATA_DAY, {
             table_name:process.env.REACT_APP_FIRST_TABLE,
             column:process.env.REACT_APP_FIRST_COLUMN,
-            date:"2008-04-15 00:00:00"
+            date:Date.now()
         })
             .then(response => {
                 const values = response.data.map(i => i.sel_value);
@@ -105,7 +105,7 @@ console.log(text);
         api.post(process.env.REACT_APP_DATA_DOWNLOAD_DAY , {
             table_name: selectedTable,
             column: selectedColumn,
-            date:Date_day
+            date:"2020-04-15 00:00:00"
         }).then(response => {
             const dvalues = response.data;
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');

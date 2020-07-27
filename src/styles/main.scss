@@ -145,7 +145,26 @@ select {
 }
 
 .about{
-  font-size: 1rem;
-
-
+  font-size: 1.5rem;
+  padding-top: 2rem;
+  text-align: justify;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-bottom: 2rem;
+}
+.about_ref {
+  font-size: 2rem;
+ padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.backround_about {
+    background-color: cornsilk;
+  position: relative;
+  }
+.backround_about_ref {
+  background-color: bisque;
+position: relative;
+  top: 0;
 }

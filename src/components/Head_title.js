@@ -4,11 +4,11 @@ const HeadTitle =()=> {
 return(
     <div className="container-preface">
         <div className="text-white">
-            <div className="text-center"><h1> <img src={image} alt="Logo" height="95" width="95" align="top"/> Vizualizace meteorologických a environmentálních dat Geodetické observatoře
+            <div className="text-center"><h1> <img src={image} class="image1" alt="Logo"  align="top"/> Vizualizace meteorologických a environmentálních dat Geodetické observatoře
                  Pecný </h1></div>
         </div>
     </div>
 )
-}
+};
 
 export default HeadTitle;

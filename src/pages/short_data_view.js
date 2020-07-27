@@ -105,7 +105,7 @@ console.log(text);
         api.post(process.env.REACT_APP_DATA_DOWNLOAD_DAY , {
             table_name: selectedTable,
             column: selectedColumn,
-            date:"2020-04-15 00:00:00"
+            date:Date_day
         }).then(response => {
             const dvalues = response.data;
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');

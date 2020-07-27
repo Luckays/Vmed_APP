@@ -30,8 +30,10 @@ const About = () => {
 
             </div>
         </div>
-
+            <div className= "images">           <img src="logo_CVUT.jpg" alt="CVUT" class="imgcvut"/> <img
+                src="logo.gif" alt="vugtk" className="imgvugtk"/>   <img src="zngopecn.gif" alt="gope" class="imggope"/>   </div>
         </div>
+
     );
 };
 

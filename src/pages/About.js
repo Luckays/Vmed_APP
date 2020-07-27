@@ -26,7 +26,7 @@ const About = () => {
         </div>
 <div className="backround_about_ref"    >
             <div className= "about_ref">
-            Tato webová aplikace vznikla v rámci bakalářské práce <a href="https://dspace.cvut.cz/handle/10467/88809">„Vizualizace meteorologických a environmentálních dat Geodetické observatoře Pecný“ </a> Bc. Lukáše Bělocha na katedře geomatiky Fakulty stavební Českého vysokého učení technického v Praze.
+            Tato webová aplikace vznikla v rámci bakalářské práce <a href="https://dspace.cvut.cz/handle/10467/88809" target="_blank">„Vizualizace meteorologických a environmentálních dat Geodetické observatoře Pecný“ </a> Bc. Lukáše Bělocha na katedře geomatiky Fakulty stavební Českého vysokého učení technického v Praze.
 
             </div>
         </div>

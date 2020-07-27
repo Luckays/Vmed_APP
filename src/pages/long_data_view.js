@@ -5,6 +5,7 @@ import Calendar from "../components/calendar"
 import {Line} from 'react-chartjs-2'
 import fileDownload from 'js-file-download'
 import HeadTitle from "../components/Head_title";
+import moment from "moment";
 require('dotenv').config();
 
 function Long_data_view() {

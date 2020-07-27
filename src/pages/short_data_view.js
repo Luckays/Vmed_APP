@@ -7,6 +7,7 @@ import fileDownload from 'js-file-download'
 import ReactCalendar from "../components/calendar_2";
 import Realpost from "../components/Realpost";
 import HeadTitle from "../components/Head_title";
+import moment from "moment";
 require('dotenv').config();
 function Short_data_view() {
 
@@ -193,18 +194,19 @@ console.log(text);
                         </div>
                     </div>
 
-                    {/*   <div className="col-2">
+                      <div className="col-2">
+                          {/*
                         <button onClick={showRealtime}
                                 onClick = {()=> {changeText(text)}}>{text}
                         </button>
-
+*/}
                     </div>
 
                     <div className="col-2">
                         <button onClick={downloadTxtFile}>
                             Uložit
                         </button>
-                    </div>*/}
+                    </div>
 
                 </div>
 

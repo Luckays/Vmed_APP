@@ -36,7 +36,7 @@ function Short_data_view() {
         api.post(process.env.REACT_APP_DATA_DAY, {
             table_name:process.env.REACT_APP_FIRST_TABLE,
             column:process.env.REACT_APP_FIRST_COLUMN,
-            date:Date.now()
+            date:"2008-04-15 00:00:00"
         })
             .then(response => {
                 const values = response.data.map(i => i.sel_value);

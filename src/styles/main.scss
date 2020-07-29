@@ -186,3 +186,62 @@ position: relative;
 .imgvugtk{
   height: 5vw;
 }
+.check_box{
+  width: 100%;
+  height: 3vw;
+  background-color: cornsilk;
+
+}
+
+.box{
+  width: 100%;
+  height: 15vw;
+  background-color: bisque;
+  border-bottom: 1px solid black;
+
+}
+
+div label input {
+  margin-right:100px;
+}
+body {
+  font-family:sans-serif;
+}
+
+.ck-button {
+  margin-top: 1px;
+  margin-left: 1vh;
+  background-color:white;
+  border:1px solid darkgrey;
+  overflow:hidden;
+  height: 2.3vw;
+  width: 4vw;
+  float: left;
+}
+
+.ck-button:hover {
+  background:red;
+}
+
+.ck-button label {
+  float:left;
+
+}
+.ck-button:focus{
+  background-color: darkred;
+}
+
+.ck-button label span {
+  text-align:center;
+  display:block;
+  font-size: 1.5vw;
+}
+.ck-button label input {
+  position:absolute;
+  top:-20px;
+}
+
+.ck-button input:checked + span {
+  background-color:darkred;
+  color:white;
+}

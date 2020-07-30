@@ -42,7 +42,8 @@ function ActualLook() {
             setShowKunzak(true);
             setShowPecny(true);
             setShowPlzen(true);
-            setShowPruhonice(true)
+            setShowPruhonice(true);
+            setShowVse(true)
         }else {
             setShowOstrava(false);
             setShowOlomouc(false);
@@ -52,7 +53,8 @@ function ActualLook() {
             setShowKunzak(false);
             setShowPecny(false);
             setShowPlzen(false);
-            setShowPruhonice(false)}};
+            setShowPruhonice(false);
+            setShowVse(false)}};
 
     return(
 

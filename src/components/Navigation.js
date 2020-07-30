@@ -15,9 +15,13 @@ const Navigation = () => {
                      activeClassName="activeRoute"
                      activeStyle={{ color: 'white' }} > Zobrazení dlouhodobých dat </NavLink>
              |
-            <NavLink to="/short_data_view" className="Nav_link"
+                        <NavLink to="/short_data_view" className="Nav_link"
                      activeClassName="activeRoute"
                      activeStyle={{ color: 'white' }}> Zobrazení krátkodobých dat </NavLink>
+            |
+            <NavLink to="/actual_look" className="Nav_link"
+                     activeClassName="activeRoute"
+                     activeStyle={{ color: 'white' }}> Přehled stanic VESOG </NavLink>
              |
             <NavLink to="/about_project" className="Nav_link"
                      activeClassName="activeRoute"
@@ -26,6 +30,6 @@ const Navigation = () => {
         </div>
         </div>
     );
-}
+};
 
 export default Navigation;

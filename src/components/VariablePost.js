@@ -6,7 +6,6 @@ const VariablePost = (selectedTable,selectedTeplota,selectedTlak,selectedVlhkost
         column_teplota: selectedTeplota,
         column_tlak: selectedTlak,
         column_vlhkost: selectedTeplota,
-        date: datum
     })
 
         .then(response => {

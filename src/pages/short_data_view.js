@@ -33,11 +33,10 @@ function Short_data_view() {
 
     useEffect(() => {
 
-console.log(moment(Date.now()).format('YYYY-MM-DD'));
         api.post(process.env.REACT_APP_DATA_DAY, {
             table_name:process.env.REACT_APP_FIRST_TABLE,
             column:process.env.REACT_APP_FIRST_COLUMN,
-            date:moment(Date.now()).format('YYYY-MM-DD')
+            date:Date.now()
         })
             .then(response => {
                 const values = response.data.map(i => i.sel_value);

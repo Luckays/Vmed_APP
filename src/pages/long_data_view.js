@@ -311,8 +311,9 @@ function Long_data_view() {
 
                     </div>
                     <div className="col-3">
+                        <div className="actual_text">
                         <h2>Výběr zobrazované hodnoty</h2>
-
+                        </div>
                     </div>
                     <div className="col-3">
 

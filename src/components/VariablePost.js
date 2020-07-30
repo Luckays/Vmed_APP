@@ -1,0 +1,23 @@
+import api from "../api";
+
+const VariablePost = (selectedTable,selectedTeplota,selectedTlak,selectedVlhkost,datum,setTeplota,setTlak,setVlhkost,setDatePlzen) => {
+    api.post('/show_data_day_var', {
+        table_name: selectedTable,
+        column_teplota: selectedTeplota,
+        column_tlak: selectedTlak,
+        column_vlhkost: selectedTeplota,
+        date: datum
+    })
+
+        .then(response => {
+            const v_teplota = response.data.map(i => i.teplota);
+            setTeplota(v_teplota);
+            const v_tlak = response.data.map(i => i.tlak);
+            setTeplota(v_tlak);
+            const v_vlhkost = response.data.map(i => i.vlhkost);
+            setTeplota(v_vlhkost);
+            const date = response.data.map(i => i.datum);
+            setDatePlzen(date)
+        })
+};
+export default VariablePost

@@ -30,8 +30,8 @@ const About = () => {
 
             </div>
         </div>
-            <div className= "images">           <a href="https://www.cvut.cz/" target="_blank"><img src="logo_CVUT.jpg" alt="CVUT" class="imgcvut" /> </a>  <a href="https://www.vugtk.cz/"> <img
-                src="logo.gif" alt="vugtk" className="imgvugtk"/>  </a>  <a href= "https://www.pecny.cz/"><img src="zngopecn.gif" alt="gope" class="imggope"/></a>   </div>
+            <div className= "images">           <a href="https://www.cvut.cz/" target="_blank"><img src="logo_CVUT.jpg" alt="CVUT" class="imgcvut" /> </a>  <a href="https://www.vugtk.cz/" target="_blank"> <img
+                src="logo.gif" alt="vugtk" className="imgvugtk"/>  </a>  <a href= "https://www.pecny.cz/" target="_blank"><img src="zngopecn.gif" alt="gope" class="imggope"/></a>   </div>
         </div>
 
     );

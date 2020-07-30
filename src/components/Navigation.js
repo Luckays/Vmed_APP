@@ -23,6 +23,7 @@ const Navigation = () => {
                      activeClassName="activeRoute"
                      activeStyle={{ color: 'white' }}> Přehled stanic VESOG </NavLink>
              |
+
             <NavLink to="/about_project" className="Nav_link"
                      activeClassName="activeRoute"
                      activeStyle={{ color: 'white' }}> O projektu </NavLink>

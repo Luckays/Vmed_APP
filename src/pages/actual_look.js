@@ -22,6 +22,7 @@ function ActualLook() {
     const [showBrno, setShowBrno] = useState(false);
     const [showOlomouc, setShowOlomouc] = useState(false);
     const [showOstrava, setShowOstrava] = useState(false);
+    const [showVse, setShowVse] = useState(false);
     const changePlzen  = () => {if(showPlzen === false){setShowPlzen(true)}else {setShowPlzen(false)}};
     const changePruhonice  = () => {if(showPruhonice === false){setShowPruhonice(true)}else {setShowPruhonice(false)}};
     const changePecny  = () => {if(showPecny === false){setShowPecny(true)}else {setShowPecny(false)}};
@@ -31,7 +32,27 @@ function ActualLook() {
     const changeBrno  = () => {if(showBrno === false){setShowBrno(true)}else {setShowBrno(false)}};
     const changeOlomouc  = () => {if(showOlomouc === false){setShowOlomouc(true)}else {setShowOlomouc(false)}};
     const changeOstrava  = () => {if(showOstrava === false){setShowOstrava(true)}else {setShowOstrava(false)}};
-
+    const changeVse  = () => {
+        if(showOstrava === false||showOlomouc===false||showBrno===false||showPolom===false||showLysaHora===false||showKunzak===false||showPecny===false||showPlzen===false||showPruhonice===false){
+            setShowOstrava(true);
+            setShowOlomouc(true);
+            setShowBrno(true);
+            setShowPolom(true);
+            setShowLysaHora(true);
+            setShowKunzak(true);
+            setShowPecny(true);
+            setShowPlzen(true);
+            setShowPruhonice(true)
+        }else {
+            setShowOstrava(false);
+            setShowOlomouc(false);
+            setShowBrno(false);
+            setShowPolom(false);
+            setShowLysaHora(false);
+            setShowKunzak(false);
+            setShowPecny(false);
+            setShowPlzen(false);
+            setShowPruhonice(false)}};
 
     return(
 
@@ -98,7 +119,7 @@ function ActualLook() {
 
                 <div className="ck-button">
                     <label>
-                        <input type="checkbox" id='checkvse' value="1" onChange={changePlzen}/><span>Vše</span>
+                        <input type="checkbox" id='checkvse' value="1" onChange={changeVse}/><span>Vše</span>
                     </label>
                 </div>
 

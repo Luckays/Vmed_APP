@@ -38,22 +38,22 @@ function ActualLook() {
             setShowOlomouc(true);
             setShowBrno(true);
             setShowPolom(true);
-            setShowLysaHora(true);
+            //setShowLysaHora(true);
             setShowKunzak(true);
             setShowPecny(true);
             setShowPlzen(true);
-            setShowPruhonice(true);
+            //setShowPruhonice(true);
             setShowVse(true)
         }else {
             setShowOstrava(false);
             setShowOlomouc(false);
             setShowBrno(false);
             setShowPolom(false);
-            setShowLysaHora(false);
+           // setShowLysaHora(false);
             setShowKunzak(false);
             setShowPecny(false);
             setShowPlzen(false);
-            setShowPruhonice(false);
+            //setShowPruhonice(false);
             setShowVse(false)}};
 
     return(
@@ -77,11 +77,11 @@ function ActualLook() {
                     </label>
                 </div>
 
-                <div className="ck-button">
+                {/* <div className="ck-button">
                     <label>
                         <input type="checkbox" checked={showLysaHora} id='checklysahora' value="1" onChange={changeLysaHora}/><span>Lysá Hora</span>
                     </label>
-                </div>
+                </div> */}
 
                 <div className="ck-button">
                     <label>
@@ -95,11 +95,11 @@ function ActualLook() {
                     </label>
                 </div>
 
-                <div className="ck-button">
+                {/*<div className="ck-button">
                     <label>
                         <input type="checkbox" checked={showPruhonice} id='checkpruhonice' value="1" onChange={changePruhonice}/><span>Průhonice</span>
                     </label>
-                </div>
+                </div>*/}
 
                 <div className="ck-button">
                     <label>

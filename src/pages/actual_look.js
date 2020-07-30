@@ -65,61 +65,61 @@ function ActualLook() {
 
                 <div className="ck-button">
                     <label>
-                        <input type="checkbox" id='checkpecny' value="1" onChange={changePecny}/><span>Pecný</span>
+                        <input type="checkbox" checked={showPecny} id='checkpecny' value="1" onChange={changePecny}/><span>Pecný</span>
                     </label>
                 </div>
 
                 <div className="ck-button">
                     <label>
-                        <input type="checkbox" id='checkkunzak' value="1" onChange={changeKunzak}/><span>Kunžak</span>
+                        <input type="checkbox" checked={showKunzak} id='checkkunzak' value="1" onChange={changeKunzak}/><span>Kunžak</span>
                     </label>
                 </div>
 
                 <div className="ck-button">
                     <label>
-                        <input type="checkbox" id='checklysahora' value="1" onChange={changeLysaHora}/><span>Lysá Hora</span>
+                        <input type="checkbox" checked={showLysaHora} id='checklysahora' value="1" onChange={changeLysaHora}/><span>Lysá Hora</span>
                     </label>
                 </div>
 
                 <div className="ck-button">
                     <label>
-                        <input type="checkbox" id='checkplzen' value="1" onChange={changePlzen}/><span>Plzeň</span>
+                        <input type="checkbox" checked={showPlzen}id='checkplzen' value="1" onChange={changePlzen}/><span>Plzeň</span>
                     </label>
                 </div>
 
                 <div className="ck-button">
                     <label>
-                        <input type="checkbox" id='checkpolom' value="1" onChange={changePolom}/><span>Polom</span>
+                        <input type="checkbox" checked={showPolom} id='checkpolom' value="1" onChange={changePolom}/><span>Polom</span>
                     </label>
                 </div>
 
                 <div className="ck-button">
                     <label>
-                        <input type="checkbox" id='checkpruhonice' value="1" onChange={changePruhonice}/><span>Průhonice</span>
+                        <input type="checkbox" checked={showPruhonice} id='checkpruhonice' value="1" onChange={changePruhonice}/><span>Průhonice</span>
                     </label>
                 </div>
 
                 <div className="ck-button">
                     <label>
-                        <input type="checkbox" id='checkbrno' value="1" onChange={changeBrno}/><span>Brno</span>
+                        <input type="checkbox" checked={showBrno} id='checkbrno' value="1" onChange={changeBrno}/><span>Brno</span>
                     </label>
                 </div>
 
                 <div className="ck-button">
                     <label>
-                        <input type="checkbox" id='checkolomouc' value="1" onChange={changeOlomouc}/><span>Olomouc</span>
+                        <input type="checkbox" checked={showOlomouc} id='checkolomouc' value="1" onChange={changeOlomouc}/><span>Olomouc</span>
                     </label>
                 </div>
 
                 <div className="ck-button">
                     <label>
-                        <input type="checkbox" id='checkostrava' value="1" onChange={changeOstrava}/><span>Ostrava</span>
+                        <input type="checkbox" checked={showOstrava} id='checkostrava' value="1" onChange={changeOstrava}/><span>Ostrava</span>
                     </label>
                 </div>
 
                 <div className="ck-button">
                     <label>
-                        <input type="checkbox" id='checkvse' value="1" onChange={changeVse}/><span>Vše</span>
+                        <input type="checkbox" checked={showVse} id='checkvse' value="1" onChange={changeVse}/><span>Vše</span>
                     </label>
                 </div>
 

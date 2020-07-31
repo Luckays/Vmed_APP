@@ -19,15 +19,16 @@ const Olomouc=() => {
     const [chartVlhkostLabels, setchartVlhkostLabels] = useState([]);
 
     useEffect(() => {
-        ActualPost("olomouc_txt_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
-        ActualPost("olomouc_txt_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
-        ActualPost("olomouc_txt_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
-        VariablePost("olomouc_txt_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
+        ActualPost("olomouc_all_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
+        ActualPost("olomouc_all_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
+        ActualPost("olomouc_all_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
+        VariablePost("olomouc_all_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
         var minutes = 1, the_interval = minutes * 60 * 1000;
         setInterval(function () {
-            ActualPost("olomouc_txt_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
-            ActualPost("olomouc_txt_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
-            ActualPost("olomouc_txt_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
+            ActualPost("olomouc_all_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
+            ActualPost("olomouc_all_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
+            ActualPost("olomouc_all_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
+            VariablePost("olomouc_all_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
         }, the_interval)
 
 

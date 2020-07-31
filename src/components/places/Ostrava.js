@@ -19,15 +19,16 @@ const Ostrava=() => {
     const [chartVlhkostLabels, setchartVlhkostLabels] = useState([]);
 
     useEffect(() => {
-        ActualPost("ostrava_txt_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
-        ActualPost("ostrava_txt_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
-        ActualPost("ostrava_txt_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
-        VariablePost("ostrava_txt_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
+        ActualPost("ostrava_rinex_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
+        ActualPost("ostrava_rinex_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
+        ActualPost("ostrava_rinex_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
+        VariablePost("ostrava_rinex_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
         var minutes = 1, the_interval = minutes * 60 * 1000;
         setInterval(function () {
-            ActualPost("ostrava_txt_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
-            ActualPost("ostrava_txt_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
-            ActualPost("ostrava_txt_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
+            ActualPost("ostrava_rinex_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
+            ActualPost("ostrava_rinex_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
+            ActualPost("ostrava_rinex_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
+            VariablePost("ostrava_rinex_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
         }, the_interval)
 
 

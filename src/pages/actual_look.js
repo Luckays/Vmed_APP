@@ -33,7 +33,7 @@ function ActualLook() {
     const changeOlomouc  = () => {if(showOlomouc === false){setShowOlomouc(true)}else {setShowOlomouc(false)}};
     const changeOstrava  = () => {if(showOstrava === false){setShowOstrava(true)}else {setShowOstrava(false)}};
     const changeVse  = () => {
-        if(showOstrava === false||showOlomouc===false||showBrno===false||showPolom===false||showLysaHora===false||showKunzak===false||showPecny===false||showPlzen===false||showPruhonice===false){
+        if(showOstrava === false||showOlomouc===false||showBrno===false||showPolom===false||showKunzak===false||showPecny===false||showPlzen===false){
             setShowOstrava(true);
             setShowOlomouc(true);
             setShowBrno(true);
@@ -54,7 +54,7 @@ function ActualLook() {
             setShowPecny(false);
             setShowPlzen(false);
             //setShowPruhonice(false);
-            setShowVse(false)}};
+            setShowVse(false) }};
 
     return(
 

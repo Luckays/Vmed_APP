@@ -28,6 +28,8 @@ const Plzen=() => {
             ActualPost("plzen_txt_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
             ActualPost("plzen_txt_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
             ActualPost("plzen_txt_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
+            VariablePost("plzen_txt_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
+
         }, the_interval)
 
 

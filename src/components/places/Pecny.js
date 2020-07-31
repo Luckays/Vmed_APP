@@ -19,16 +19,17 @@ const Pecny=() => {
     const [chartVlhkostLabels, setchartVlhkostLabels] = useState([]);
 
     useEffect(() => {
-        ActualPost("pecny_txt_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
-        ActualPost("pecny_txt_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
-        ActualPost("pecny_txt_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
-        VariablePost("pecny_txt_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
+        ActualPost("txt_table",'teplota_u_GPS_anteny',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
+        ActualPost("txt_table",'tlak_u_GPS_anteny',Date.now(),setchartTlakData,setchartTlakLabels);
+        ActualPost("txt_table",'vlhkost_u_GPS_anteny',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
+        VariablePost("txt_table","teplota_u_GPS_anteny","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
         var minutes = 1, the_interval = minutes * 60 * 1000;
         setInterval(function () {
-            ActualPost("pecny_txt_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
-            ActualPost("pecny_txt_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
-            ActualPost("pecny_txt_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
-        }, the_interval)
+            ActualPost("txt_table",'teplota_u_GPS_anteny',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
+            ActualPost("txt_table",'tlak_u_GPS_anteny',Date.now(),setchartTlakData,setchartTlakLabels);
+            ActualPost("txt_table",'vlhkost_u_GPS_anteny',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
+            VariablePost("txt_table","teplota_u_GPS_anteny","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
+            }, the_interval)
 
 
     });

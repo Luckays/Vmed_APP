@@ -22,7 +22,7 @@ const Pecny=() => {
         ActualPost("txt_table",'teplota_u_GPS_anteny',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
         ActualPost("txt_table",'tlak_u_GPS_anteny',Date.now(),setchartTlakData,setchartTlakLabels);
         ActualPost("txt_table",'vlhkost_u_GPS_anteny',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
-        VariablePost("txt_table","teplota_u_GPS_anteny","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
+        VariablePost("txt_table","teplota_u_GPS_anteny","tlak_u_GPS_anteny","vlhkost_u_GPS_anteny",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
 
 
 

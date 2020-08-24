@@ -19,9 +19,9 @@ const Plzen=() => {
     const [chartVlhkostLabels, setchartVlhkostLabels] = useState([]);
 
     useEffect(() => {
-        ActualPost("plzen_txt_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
-        ActualPost("plzen_txt_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
-        ActualPost("plzen_txt_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
+        ActualPost("plzen_txt_table",'cteni_teploty',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
+        ActualPost("plzen_txt_table",'cteni_tlaku',Date.now(),setchartTlakData,setchartTlakLabels);
+        ActualPost("plzen_txt_table",'cteni_vlhkosti',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
         VariablePost("plzen_txt_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
 
 

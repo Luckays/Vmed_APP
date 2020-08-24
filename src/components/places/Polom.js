@@ -23,11 +23,7 @@ const Polom=() => {
         ActualPost("polom_txt_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
         ActualPost("polom_txt_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
         VariablePost("polom_txt_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
-        var minutes = 1, the_interval = minutes * 60 * 1000;
-
-
-
-    });
+    },[]);
 
     return (
         <div className="box">

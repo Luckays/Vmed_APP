@@ -26,8 +26,7 @@ const Pruhonice=() => {
 
 
 
-    });
-
+    },[]);
     return (
         <div className="box">
             <div className="actual_place">

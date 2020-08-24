@@ -24,7 +24,7 @@ const Kunzak=() => {
         ActualPost("kunzak_all_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
         VariablePost("kunzak_all_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
 
-    });
+    },[]);
 
     return (
         <div className="box">

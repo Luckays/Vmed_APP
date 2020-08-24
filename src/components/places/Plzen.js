@@ -26,8 +26,7 @@ const Plzen=() => {
 
 
 
-    });
-
+    },[]);
     return (
         <div className="box">
             <div className="actual_place">

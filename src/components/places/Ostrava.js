@@ -26,7 +26,7 @@ const Ostrava=() => {
         var minutes = 1, the_interval = minutes * 60 * 1000;
 
 
-    });
+    },[]);
 
     return (
         <div className="box">

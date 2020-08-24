@@ -26,7 +26,7 @@ const LysaHora=() => {
 
 
 
-    });
+    },[]);
 
     return (
         <div className="box">

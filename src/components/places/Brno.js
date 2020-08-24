@@ -26,7 +26,7 @@ const Brno=() => {
 
 
 
-    });
+    },[]);
 
     return (
         <div className="box">

@@ -23,12 +23,7 @@ const LysaHora=() => {
         ActualPost("lysahora_txt_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
         ActualPost("lysahora_txt_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
         VariablePost("lysahora_txt_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
-        var minutes = 1, the_interval = minutes * 60 * 1000;
-        setInterval(function () {
-            ActualPost("lysahora_txt_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
-            ActualPost("lysahora_txt_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
-            ActualPost("lysahora_txt_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
-        }, the_interval)
+
 
 
     });

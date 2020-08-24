@@ -23,14 +23,6 @@ const Kunzak=() => {
         ActualPost("kunzak_all_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
         ActualPost("kunzak_all_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
         VariablePost("kunzak_all_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
-        var minutes = 1, the_interval = minutes * 60 * 1000;
-        setInterval(function () {
-            ActualPost("kunzak_all_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
-            ActualPost("kunzak_all_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
-            ActualPost("kunzak_all_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
-            VariablePost("kunzak_all_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
-        }, the_interval)
-
 
     });
 

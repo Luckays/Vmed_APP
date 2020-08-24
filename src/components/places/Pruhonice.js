@@ -23,12 +23,7 @@ const Pruhonice=() => {
         ActualPost("pruhonice_txt_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
         ActualPost("pruhonice_txt_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
         VariablePost("pruhonice_txt_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
-        var minutes = 1, the_interval = minutes * 60 * 1000;
-        setInterval(function () {
-            ActualPost("pruhonice_txt_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
-            ActualPost("pruhonice_txt_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
-            ActualPost("pruhonice_txt_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
-        }, the_interval)
+
 
 
     });

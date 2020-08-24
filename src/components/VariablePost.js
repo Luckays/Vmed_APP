@@ -12,9 +12,9 @@ const VariablePost = (selectedTable,selectedTeplota,selectedTlak,selectedVlhkost
             const v_teplota = response.data.map(i => i.teplota);
             setTeplota(v_teplota);
             const v_tlak = response.data.map(i => i.tlak);
-            setTeplota(v_tlak);
+            setTlak(v_tlak);
             const v_vlhkost = response.data.map(i => i.vlhkost);
-            setTeplota(v_vlhkost);
+            setVlhkost(v_vlhkost);
             const date = response.data.map(i => i.datum);
             setDatePlzen(date)
         })

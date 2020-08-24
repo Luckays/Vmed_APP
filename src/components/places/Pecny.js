@@ -26,7 +26,7 @@ const Pecny=() => {
 
 
 
-    });
+    },[]);
 
     return (
         <div className="box">

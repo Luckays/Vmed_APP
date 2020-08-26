@@ -112,7 +112,9 @@ function Long_data_view() {
                 const values = response.data.map(i => i.sel_value);
                 setChartData(values);
                 const dates = response.data.map(i => i.date_day);
-                setChartLabels(dates)
+                setChartLabels(dates);
+                console.log(chartLabels);
+                console.log(dates.length())
             })
 
     },[selectedTable,selectedColumn,startDate,endDate,groupType]);

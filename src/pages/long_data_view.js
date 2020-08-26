@@ -112,9 +112,9 @@ function Long_data_view() {
                 const values = response.data.map(i => i.sel_value);
                 setChartData(values);
                 const dates = response.data.map(i => i.date_day);
-                console.log(chartLabels.length);
-                setChartLabels(dates);
-
+               if(chartLabels.length<=dates.length) {
+                   setChartLabels(dates);
+               }
                 console.log(dates.length)
             })
 
@@ -183,7 +183,10 @@ function Long_data_view() {
                 const values2 = response.data.map(i => i.sel_value);
                 setChartData2(values2);
                 const dates = response.data.map(i => i.date_day);
-                setChartLabels(dates)
+
+                if(chartLabels.length<=dates.length) {
+                    setChartLabels(dates);
+                }
             })
 
     },[selectedTable2,selectedColumn2,startDate,endDate,groupType2]);
@@ -251,7 +254,10 @@ function Long_data_view() {
                 const values3 = response.data.map(i => i.sel_value);
                 setChartData3(values3);
                 const dates = response.data.map(i => i.date_day);
-                setChartLabels(dates)
+
+                if(chartLabels.length<=dates.length) {
+                    setChartLabels(dates);
+                }
             })
 
     },[selectedTable3,selectedColumn3,startDate,endDate,groupType3]);

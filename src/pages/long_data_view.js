@@ -112,7 +112,7 @@ function Long_data_view() {
                 const values = response.data.map(i => i.sel_value);
                 setChartData(values);
                 const dates = response.data.map(i => i.date_day);
-               if(chartLabels.length<=dates.length) {
+               if(chartLabels.length<=dates.length||chartLabels.length===8) {
                    setChartLabels(dates);
                }
 
@@ -184,7 +184,7 @@ function Long_data_view() {
                 setChartData2(values2);
                 const dates = response.data.map(i => i.date_day);
 
-                if(chartLabels.length<=dates.length) {
+                if(chartLabels.length<=dates.length||chartLabels.length===8) {
                     setChartLabels(dates);
                 }
             })
@@ -255,7 +255,7 @@ function Long_data_view() {
                 setChartData3(values3);
                 const dates = response.data.map(i => i.date_day);
 
-                if(chartLabels.length<=dates.length) {
+                if(chartLabels.length<=dates.length||chartLabels.length===8) {
                     setChartLabels(dates);
                 }
             })

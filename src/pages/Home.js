@@ -26,11 +26,11 @@ function Home() {
             group_type: "Minimum",
         })
             .then(response => {
-                const values = response.data.map(i => i.sel_value)
-                setChartData2(values)
-                const dates = response.data.map(i => i.date_day)
+                const values = response.data.map(i => i.sel_value);
+                setChartData2(values);
+                const dates = response.data.map(i => i.date_day);
                 setChartLabels2(dates)
-                console.log("OK")
+
             })
     },[]);
 
@@ -43,11 +43,11 @@ function Home() {
             group_type: "Maximum",
         })
             .then(response => {
-                const values = response.data.map(i => i.sel_value)
-                setChartData2_1(values)
-                const dates = response.data.map(i => i.date_day)
+                const values = response.data.map(i => i.sel_value);
+                setChartData2_1(values);
+                const dates = response.data.map(i => i.date_day);
                 setChartLabels2_1(dates)
-                console.log("OK")
+
             })
     },[]);
 
@@ -60,9 +60,9 @@ function Home() {
             date:Date.now()
         })
             .then(response => {
-                const values = response.data.map(i => i.sel_value)
-                setChartData(values)
-                const dates = response.data.map(i => i.day_time)
+                const values = response.data.map(i => i.sel_value);
+                setChartData(values);
+                const dates = response.data.map(i => i.day_time);
                 setChartLabels(dates)
             })
     },[]);

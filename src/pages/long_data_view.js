@@ -40,7 +40,7 @@ function Long_data_view() {
                 setChartData(values);
                 const dates = response.data.map(i => i.date_day);
                 setChartLabels(dates);
-                console.log("OK")
+
             })
     },[]);
 
@@ -60,7 +60,7 @@ function Long_data_view() {
                 const values2 = response.data.map(i => i.sel_value);
                 setChartData2(values2);
 
-                console.log("OK")
+
             })
     },[]);
 
@@ -80,7 +80,7 @@ function Long_data_view() {
                 const values3 = response.data.map(i => i.sel_value);
                 setChartData3(values3);
 
-                console.log("OK")
+
             })
     },[]);
 
@@ -93,7 +93,7 @@ function Long_data_view() {
     }, [selectedTable]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
 
     useEffect(() => {
-        console.log(selectedTable,selectedColumn,startDate,endDate,groupType);
+
         if (startDate === null || endDate === null || groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') return;
         if (groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') { setChartData2(null);
             setSelectedColumn2('--')
@@ -115,7 +115,7 @@ function Long_data_view() {
                if(chartLabels.length<=dates.length) {
                    setChartLabels(dates);
                }
-                console.log(dates.length)
+
             })
 
     },[selectedTable,selectedColumn,startDate,endDate,groupType]);
@@ -137,7 +137,7 @@ function Long_data_view() {
             const dvalues = response.data;
             // const ddates = response.data.map(i => i.date_day)
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
-            console.log(dvalues)
+
         })
 
     };
@@ -164,7 +164,7 @@ function Long_data_view() {
     }, [selectedTable2]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
 
     useEffect(() => {
-        console.log(selectedTable2,selectedColumn2,startDate,endDate,groupType2);
+
         if (startDate === null || endDate === null || groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') return;
         if (groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') { setChartData(null);
             setSelectedColumn('--')
@@ -208,7 +208,7 @@ function Long_data_view() {
         }).then(response => {
             const dvalues = response.data;
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
-            console.log(dvalues)
+
         })
 
     };
@@ -235,7 +235,7 @@ function Long_data_view() {
     }, [selectedTable3]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
 
     useEffect(() => {
-        console.log(selectedTable3,selectedColumn3,startDate,endDate,groupType3);
+
         if (startDate === null || endDate === null || groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') return;
         if (groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') { setChartData(null);
             setSelectedColumn('--')
@@ -278,9 +278,9 @@ function Long_data_view() {
 
         }).then(response => {
             const dvalues = response.data;
-            console.log('first'+ response.data);
+
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
-            console.log(dvalues)
+
         })
 
     };

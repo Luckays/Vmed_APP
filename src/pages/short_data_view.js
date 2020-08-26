@@ -56,11 +56,11 @@ function Short_data_view() {
     }, [selectedTable]);// input pouze pri zmene defi hodnoty, bez pri jakoliv zmene, prazdne jen pri prvni*/
 
         useEffect(() => {
-console.log(text);
+
             if (text === 'On') return;
-            console.log(selectedTable, selectedColumn, Date_day);
+
             if (Date_day === null || selectedTable === '--' || selectedColumn === '--') return;
-                console.log('inside');
+
             api.post(process.env.REACT_APP_DATA_DAY, {
                 table_name: selectedTable,
                 column: selectedColumn,
@@ -80,11 +80,11 @@ console.log(text);
 
         if(text === 'Off') {return;}
 
-        console.log(selectedTable,selectedColumn,Date_day);
+
             if (selectedTable === '--'||selectedColumn === '--'||Date_day===null) return;
-        console.log('inside on');
+
         let today = Date.now();
-        console.log(selectedTable,selectedColumn,today);
+
         Realpost(selectedTable,selectedColumn,today,setChartData,setChartLabels);
         var minutes = 1, the_interval = minutes * 60 * 1000;
         setInterval(function () {
@@ -109,7 +109,7 @@ console.log(text);
         }).then(response => {
             const dvalues = response.data;
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
-            console.log(dvalues)
+
         })
 
 

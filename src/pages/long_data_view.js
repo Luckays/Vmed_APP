@@ -18,6 +18,8 @@ function Long_data_view() {
     const [endDate, setEndDate] = useState(null);
     const [chartData, setChartData] = useState([]);
     const [chartLabels, setChartLabels] = useState([]);
+    const [chartLabels2, setChartLabels2] = useState([]);
+    const [chartLabels3, setChartLabels3] = useState([]);
     let date = new Date();
     useEffect(() => {
         api.get(process.env.REACT_APP_DATA_TABLES)
@@ -59,6 +61,8 @@ function Long_data_view() {
             .then(response => {
                 const values2 = response.data.map(i => i.sel_value);
                 setChartData2(values2);
+                const dates = response.data.map(i => i.date_day);
+                setChartLabels2(dates);
 
 
             })
@@ -79,6 +83,8 @@ function Long_data_view() {
             .then(response => {
                 const values3 = response.data.map(i => i.sel_value);
                 setChartData3(values3);
+                const dates = response.data.map(i => i.date_day);
+                setChartLabels3(dates);
 
 
             })
@@ -185,7 +191,7 @@ function Long_data_view() {
                 const dates = response.data.map(i => i.date_day);
 
                 if(chartLabels.length<=dates.length||chartLabels.length===8) {
-                    setChartLabels(dates);
+                    setChartLabels2(dates);
                 }
             })
 
@@ -256,7 +262,7 @@ function Long_data_view() {
                 const dates = response.data.map(i => i.date_day);
 
                 if(chartLabels.length<=dates.length||chartLabels.length===8) {
-                    setChartLabels(dates);
+                    setChartLabels3(dates);
                 }
             })
 
@@ -471,7 +477,7 @@ function Long_data_view() {
 
                     <Line
                         data={{
-                            labels: chartLabels,
+                            labels: [chartLabels,chartLabels2,chartLabels3],
                             datasets: [{
                                 label: selectedColumn,
                                 borderColor: 'red',

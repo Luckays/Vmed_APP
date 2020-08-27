@@ -16,7 +16,7 @@ const VariablePost = (selectedTable,selectedTeplota,selectedTlak,selectedVlhkost
             const v_vlhkost = response.data.map(i => i.vlhkost);
             setVlhkost(v_vlhkost);
             const date = response.data.map(i => i.datum);
-            setDatePlzen(date)
+            setDatePlzen(date.getHours()+2)
         })
 };
 export default VariablePost

@@ -31,7 +31,7 @@ const Pecny=() => {
     return (
         <div className="box">
             <div className="actual_place">
-                <h2>PECNÝ{date}</h2>
+                <h2>PECNÝ: {date}</h2>
             </div>
             <div className="row">
                 <div className="col-4">

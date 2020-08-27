@@ -1,5 +1,5 @@
 import api from "../api";
-
+import moment from "moment";
 const VariablePost = (selectedTable,selectedTeplota,selectedTlak,selectedVlhkost,datum,setTeplota,setTlak,setVlhkost,setDatePlzen) => {
     api.post('/show_data_day_var', {
         table_name: selectedTable,
@@ -16,7 +16,8 @@ const VariablePost = (selectedTable,selectedTeplota,selectedTlak,selectedVlhkost
             const v_vlhkost = response.data.map(i => i.vlhkost);
             setVlhkost(v_vlhkost);
             const date = response.data.map(i => i.datum);
-            setDatePlzen(date)
+
+            setDatePlzen(moment(date).add(2, 'hours'))
         })
 };
 export default VariablePost

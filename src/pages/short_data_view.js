@@ -23,6 +23,7 @@ function Short_data_view() {
     const [endDate_day, setEndDate_day] = useState(null);
     const [chartData, setChartData] = useState([]);
     const [chartLabels, setChartLabels] = useState([]);
+    const [nacitani, setNacitani] = useState('--');
     useEffect(() => {
         api.get(process.env.REACT_APP_DATA_TABLES)
             .then(res => {
@@ -61,6 +62,8 @@ function Short_data_view() {
 
             if (Date_day === null || selectedTable === '--' || selectedColumn === '--') return;
 
+            setNacitani("Načítám data");
+
             api.post(process.env.REACT_APP_DATA_DAY, {
                 table_name: selectedTable,
                 column: selectedColumn,
@@ -71,7 +74,8 @@ function Short_data_view() {
                     const values = response.data.map(i => i.sel_value);
                     setChartData(values);
                     const dates = response.data.map(i => i.day_time);
-                    setChartLabels(dates)
+                    setChartLabels(dates);
+                    setNacitani(" ")
                 })}
         , [selectedTable, selectedColumn, Date_day, text]);
 
@@ -195,6 +199,8 @@ function Short_data_view() {
                     </div>
 
                       <div className="col-2">
+
+                          <h2> {nacitani} </h2>
                           {/*
                         <button onClick={showRealtime}
                                 onClick = {()=> {changeText(text)}}>{text}

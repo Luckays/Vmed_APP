@@ -23,6 +23,7 @@ function ActualLook() {
     const [showOlomouc, setShowOlomouc] = useState(false);
     const [showOstrava, setShowOstrava] = useState(false);
     const [showVse, setShowVse] = useState(false);
+
     const changePlzen  = () => {if(showPlzen === false){setShowPlzen(true)}else {setShowPlzen(false)}};
     const changePruhonice  = () => {if(showPruhonice === false){setShowPruhonice(true)}else {setShowPruhonice(false)}};
     const changePecny  = () => {if(showPecny === false){setShowPecny(true)}else {setShowPecny(false)}};

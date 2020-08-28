@@ -18,6 +18,8 @@ function Long_data_view() {
     const [endDate, setEndDate] = useState(null);
     const [chartData, setChartData] = useState([]);
     const [chartLabels, setChartLabels] = useState([]);
+    const [nacitani, setNacitani] = useState('');
+
     let date = new Date();
     useEffect(() => {
         api.get(process.env.REACT_APP_DATA_TABLES)
@@ -101,6 +103,7 @@ function Long_data_view() {
         if (groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') { setChartData3(null);
             setSelectedColumn3('--')
         }
+        setNacitani("Načítám data...");
         api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable,
             column: selectedColumn,
@@ -114,6 +117,7 @@ function Long_data_view() {
                 const dates = response.data.map(i => i.date_day);
 
                    setChartLabels(dates);
+                setNacitani("");
 
 
             })
@@ -127,6 +131,7 @@ function Long_data_view() {
 
     var  downloadTxtFile = () => {
         if (startDate === null || endDate === null || groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') return;
+        setNacitani("");
         api.post(process.env.REACT_APP_DATA_DOWNLOAD,{
             table_name: selectedTable,
             column: selectedColumn,
@@ -137,6 +142,7 @@ function Long_data_view() {
             const dvalues = response.data;
             // const ddates = response.data.map(i => i.date_day)
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
+            setNacitani("");
 
         })
 
@@ -172,6 +178,7 @@ function Long_data_view() {
         if (groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') { setChartData3(null);
             setSelectedColumn3('--')
         }
+        setNacitani("Načítám data...");
         api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable2,
             column: selectedColumn2,
@@ -186,7 +193,7 @@ function Long_data_view() {
 
 
                     setChartLabels(dates);
-
+                setNacitani("");
             })
 
     },[selectedTable2,selectedColumn2,startDate,endDate,groupType2]);
@@ -198,6 +205,7 @@ function Long_data_view() {
 
     var  downloadTxtFile2 = () => {
         if (startDate === null || endDate === null || groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') return;
+        setNacitani("Načítám data...");
         api.post(process.env.REACT_APP_DATA_DOWNLOAD, {
             table_name: selectedTable2,
             column: selectedColumn2,
@@ -208,6 +216,7 @@ function Long_data_view() {
         }).then(response => {
             const dvalues = response.data;
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
+            setNacitani("");
 
         })
 
@@ -243,6 +252,7 @@ function Long_data_view() {
         if (groupType2 === '--' ||groupType2 === undefined|| selectedTable2 === '--'||selectedColumn2 === '--') { setChartData2(null);
             setSelectedColumn2('--')
         }
+        setNacitani("Načítám data...");
         api.post(process.env.REACT_APP_DATA_ANALYSIS, {
             table_name: selectedTable3,
             column: selectedColumn3,
@@ -257,6 +267,7 @@ function Long_data_view() {
 
 
                     setChartLabels(dates);
+                setNacitani("");
 
             })
 
@@ -269,6 +280,7 @@ function Long_data_view() {
 
     var  downloadTxtFile3 = () => {
         if (startDate === null || endDate === null || groupType3 === '--' ||groupType3 === undefined|| selectedTable3 === '--'||selectedColumn3 === '--') return;
+        setNacitani("Načítám data...");
         api.post(process.env.REACT_APP_DATA_DOWNLOAD, {
             table_name: selectedTable3,
             column: selectedColumn3,
@@ -280,6 +292,7 @@ function Long_data_view() {
             const dvalues = response.data;
 
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
+            setNacitani("");
 
         })
 
@@ -326,7 +339,7 @@ function Long_data_view() {
                     </div>
                     <div className="col-3">
 
-
+                        <h2> {nacitani} </h2>
 
                     </div>
 

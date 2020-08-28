@@ -75,7 +75,7 @@ function Short_data_view() {
                     setChartData(values);
                     const dates = response.data.map(i => i.day_time);
                     setChartLabels(dates);
-                    setNacitani(" ")
+                    setNacitani("")
                 })}
         , [selectedTable, selectedColumn, Date_day, text]);
 
@@ -106,6 +106,7 @@ function Short_data_view() {
 
     var  downloadTxtFile = () => {
         if (Date_day === null ||  selectedTable === '--'||selectedColumn === '--') return;
+        setNacitani("Načítám data...");
         api.post(process.env.REACT_APP_DATA_DOWNLOAD_DAY , {
             table_name: selectedTable,
             column: selectedColumn,
@@ -113,7 +114,7 @@ function Short_data_view() {
         }).then(response => {
             const dvalues = response.data;
             fileDownload(dvalues, 'Data'+Date.now()+'.csv');
-
+            setNacitani("");
         })
 
 

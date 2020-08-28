@@ -131,7 +131,7 @@ function Long_data_view() {
 
     var  downloadTxtFile = () => {
         if (startDate === null || endDate === null || groupType === '--' ||groupType === undefined|| selectedTable === '--'||selectedColumn === '--') return;
-        setNacitani("");
+        setNacitani("Načítám data...");
         api.post(process.env.REACT_APP_DATA_DOWNLOAD,{
             table_name: selectedTable,
             column: selectedColumn,

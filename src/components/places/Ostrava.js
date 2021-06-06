@@ -22,7 +22,7 @@ const Ostrava=() => {
         ActualPost("ostrava_rinex_table",'teplota',Date.now(),setchartTeplotaData,setchartTeplotaLabels);
         ActualPost("ostrava_rinex_table",'tlak',Date.now(),setchartTlakData,setchartTlakLabels);
         ActualPost("ostrava_rinex_table",'vlhkost',Date.now(),setchartVlhkostData,setchartVlhkostLabels);
-        VariablePost("ostrava_rinex_table","teplota","tlak","vlhkost",Date.now(),setTeplota,setTlak,setVlhkost,setDate);
+        VariablePost("ostrava_rinex_table",'teplota','tlak','vlhkost',Date.now(),setTeplota,setTlak,setVlhkost,setDate);
 
     },[]);
 

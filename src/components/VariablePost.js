@@ -17,7 +17,7 @@ const VariablePost = (selectedTable,selectedTeplota,selectedTlak,selectedVlhkost
             setVlhkost(v_vlhkost);
             const date = response.data.map(i => i.datum);
 
-            setDatePlzen(date)
+            setDateOstrava(date)
         })
 };
 export default VariablePost

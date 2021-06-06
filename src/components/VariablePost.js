@@ -1,6 +1,6 @@
 import api from "../api";
 
-const VariablePost = (selectedTable,selectedTeplota,selectedTlak,selectedVlhkost,datum,setTeplota,setTlak,setVlhkost,setDatePlzen) => {
+const VariablePost = (selectedTable,selectedTeplota,selectedTlak,selectedVlhkost,datum,setTeplota,setTlak,setVlhkost,setDateOstrava) => {
     api.post('/show_data_day_var', {
         table_name: selectedTable,
         column_teplota: selectedTeplota,

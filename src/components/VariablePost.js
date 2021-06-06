@@ -5,7 +5,7 @@ const VariablePost = (selectedTable,selectedTeplota,selectedTlak,selectedVlhkost
         table_name: selectedTable,
         column_teplota: selectedTeplota,
         column_tlak: selectedTlak,
-        column_vlhkost: selectedTeplota,
+        column_vlhkost: selectedVlhkost,
     })
 
         .then(response => {
